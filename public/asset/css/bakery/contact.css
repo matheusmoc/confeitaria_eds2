@@ -1,0 +1,40 @@
+.contact{
+    padding:30px;
+}
+.contact .btn-submit{
+    background-color: tomato;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.contact .contact-left input,.contact .contact-left textarea{
+    width:100%;
+    
+}
+.contact .contact-left input{
+    padding:3px;
+    margin: 3px;
+}
+
+/* contact-right */
+.contact-text{
+    padding:50px 0px 30px 30px;
+    font-size: 16px;
+}
+.contact-text .item-contact{
+    display:flex;
+    padding-bottom: 4px;
+}
+.contact-text .item-contact i{
+    font-size: 25px;
+     color: tomato;
+}
+.contact-text .item-contact .item-text{
+    padding-left: 15px;
+}
+.contact-text .item-contact .heading{
+    font-weight: bold;
+   
+
+}

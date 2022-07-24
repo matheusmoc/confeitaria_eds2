@@ -1,0 +1,115 @@
+
+
+/* detail-blog  column-left*/
+.detail-blog{
+    padding:30px 0px;
+}
+.detail-blog .blog-content h2{
+    font-family: 'Livvic', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    padding: 8px 0px;
+}
+.detail-blog .blog-content p{
+    font-size: 17px;
+    line-height: 2;
+}
+.detail-blog .title-comment{
+    font-family: 'Livvic', sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+}
+.detail-blog form{
+    padding:20px 0px;
+}
+
+.detail-blog form  input{
+    width: 100%;
+    padding:4px;
+    
+}
+.detail-blog form  textarea{
+    width: 100%;
+    padding:4px;
+}
+.detail-blog form .btn-sub{
+    border-radius: 5px;
+    border: 1px solid rgb(230,85,59);
+    font-weight: bold;
+    background-color: rgb(230, 85, 59);
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 9px 22px;
+    font-size: 20px;
+}
+/* detail-blog  column-right*/
+.detail-blog .item-blog input{
+    position: relative;
+    width: 100%;
+    padding: 4px 33px 4px 9px;
+    border: 1px solid black;
+    border-radius: 2px;
+    margin: 2px;
+}
+.detail-blog .item-blog form i{
+    position: absolute;
+    top: 31px;
+    right: 26px;
+}
+.detail-blog .item-blog .categories-blog{
+    padding-top:20px;
+   
+}
+.detail-blog .item-blog .categories-blog h4{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.detail-blog .item-blog .categories-blog .item-categories{
+     line-height: 1.6;
+    padding-top: 14px;
+    cursor: pointer;
+}
+ .item-categories a{
+    text-decoration: none;
+    
+}
+
+
+
+.detail-blog .item-blog .categories-blog .item-categories li{
+    color: rgb(230, 85, 59);
+}
+.detail-blog .item-blog .categories-blog .item-categories li a{
+    color: black;
+    text-decoration: none;
+}
+.detail-blog .item-blog .categories-blog .item-categories li a:hover{
+    color: rgb(230, 85, 59);
+  
+}
+
+.detail-blog .item-blog .item-categories .list-blog{
+    display: flex;
+    vertical-align: middle;
+    color: black;
+}
+.detail-blog .item-blog .item-categories .list-blog .text-blog {
+    margin-left: 10px;
+ 
+}
+.detail-blog .item-blog .item-categories .list-blog .text-blog .title{
+       font-weight: bold;
+}
+.detail-blog .item-blog .item-categories .list-blog .text-blog .title:hover{
+    color: rgb(230, 85, 59);
+}
+
+.detail-blog .item-blog .item-categories .tag{
+    line-height: 2.8;
+    color: black;
+    background-color: #dcc4c4;
+    padding: 7px;
+    margin: 4px;
+    text-decoration: none;
+}

@@ -1,0 +1,160 @@
+/* detail-product */
+.detail-product{
+    padding:35px 0px;
+}
+.image-detail-product .image-product img{
+    padding: 40px 40px 0px 40px;
+}
+
+.image-detail-product .image-product-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px 0px 40px;
+}
+
+.image-detail-product .image-product-item .image-item{
+    flex-basis: 23%;
+   cursor: pointer;
+}
+/* content-detail-product */
+.content-detail-product{
+    padding:35px 0px 0px 20px;
+     animation: fadeIn 1s ease-in;
+  
+}
+.content-detail-product .heading-detail{
+    font-size: 30px;
+    font-weight: bold;
+}
+.content-detail-product .heading-detail hr.line-heading-detail{
+    width: 30%;
+    background-color: tomato;
+    padding: 2px;
+}
+.content-detail{
+    padding-top:10px;
+}
+.content-detail .title-detail{
+    font-size: 18px;
+    font-weight: bold;
+}
+.content-detail .title-detail p span{
+    font-size: 25px;
+    color: tomato;
+    padding-left: 3px;
+   
+}
+.rate-detail span i{
+    color: rgb(235, 235, 62);
+    font-size: 25px;
+}
+.text-detail .detail p{
+    font-weight: normal;
+}
+.buy-now .btn-buy{
+    border: 1px solid tomato;
+    background-color: tomato;
+    color: white;
+    border-radius: 30px;
+    padding: 8px 25px;
+}
+.share-product .icon-detail a{
+    padding-right:10px;
+}
+.share-product .icon-detail a i{
+    color: black;
+    font-size: 30px;
+}
+.share-product .icon-detail a i:hover{
+   transform: rotateY(50deg);
+}
+/* comment-product */
+.comment-product{
+    padding: 30px 0px;
+}
+.comment-product .container{
+  background-color: rgb(241, 241, 241);
+ padding: 10px;
+ 
+}
+ .title-comment{
+    font-size: 23px;
+    font-weight: bolder;
+     color: rgb(230, 85, 59);
+}
+.rate-comment,.comment label{
+    font-size: 20px;
+}
+.rate-comment .rate-star{
+    padding:10px 0px 0px 5px;
+}
+.rate-comment .rate-star i{
+    color: rgb(216, 216, 71);
+    font-size: 20px;
+   
+}
+.rate-comment .rate-star i:hover{
+    color: rgb(235, 235, 62);
+    cursor: pointer;
+}
+
+.detail-comment{
+    padding:20px 15px 0px 15px;
+}
+.detail-comment .border-comment{
+    border: 2px solid rgb(233, 94, 70);
+    margin: 20px 0px;
+    padding: 10px 15px 10px 10px;
+}
+.detail-comment .rate-comment,.detail-comment .comment{
+    padding:10px 0px 5px 15px;
+}
+.detail-comment .comment textarea{
+    width: 100%;
+    
+}
+.content-comment{
+    display:flex;
+    padding-top: 5px;
+    padding: 20px 0px 3px 20px;
+}
+.content-comment .image-member{
+    display: block;
+    
+}
+.content-comment .image-member img{
+    padding-right: 20px;
+    margin: 14px 0px;
+   
+}
+.content-comment .content-detail-comment{
+    /* padding:16px 0px; */
+    display: block;
+  
+}
+.content-comment .content-detail-comment .rate-star i{
+    color: rgb(235, 235, 62);
+}
+.content-comment .content-detail-comment span{
+    font-weight: bold;
+}
+/* related-products */
+.related-products .heading-related-products{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.related-products .heading-related-products hr.line-heading-related-products{
+    width: 20%;
+    background-color: tomato;
+    padding: 2px;
+}
+/* ---------------------- */
+a.btn.login-comment{
+    background-color: tomato;
+    color:white;
+}
+.btn-comment{
+    background-color: tomato;
+    color:white;
+}

@@ -1,0 +1,197 @@
+/* table-product */
+.table-product{
+    padding:60px;
+}
+.table-product .header-table{
+    background-color: rgb(230, 81, 55);
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+.table-product .item-table{
+    text-align: center;
+    font-size: 18px;
+}
+.table-product .item-table td{
+    vertical-align: middle;
+}
+.table-product .item-table .name-item-product{
+    font-weight: bold;
+    
+}
+.table-product .item-table .icon-delete a{
+    cursor: pointer;
+    color: black;
+}
+.table-product .quantity{
+    display: flex;
+    justify-content: center;
+}
+.table-product .quantity button{
+    width: 45px;
+    height: 45px;
+    border: 1px solid #d7d3d3;
+    font-size: 23px;
+    margin:0px 5px;
+}
+.table-product .quantity input{
+    font-size: 18px;
+    text-align: center;
+    width: 90px;
+    border: 1px solid #ecdede;
+}
+
+.table-product .title-total{
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 20px;
+    color: rgb(230, 81, 55);
+}
+.table-product .title-price{
+    font-size: 18px;
+    font-weight: bold;
+}
+.table-product .discount{
+    display: flex;
+    padding-left: 10px;
+}
+.table-product .discount input{
+    font-size: 18px;
+    padding: 5px;
+}
+.table-product .discount button{
+    background-color: rgb(230, 81, 55);
+    color: white;
+    margin-left: 8px;
+    font-size: 17px;
+}
+.table-product .total-bill{
+    width: 100%;
+    padding: 10px;
+    margin: 30px 0px;
+    /* border: 1px solid black; */
+    box-shadow: 0 8px 30px 0 rgb(0 0 0 / 12%);
+}
+.table-product .total-bill .title-bill{
+    font-weight: bold;
+    font-size: 18px;
+}
+.table-product .total-bill .list-bill{
+    padding: 2px 17px;
+    justify-content: space-between;
+    display: flex;
+   
+}
+.table-product .total-bill .price-bill{
+     color: #ec7e6a;
+     font-weight: bold;
+}
+.table-product .total-bill .payment p{
+    width: 100%;
+    background-color: rgb(230, 81, 55);
+    padding: 12px;
+    text-align: center;
+    color: white;
+   font-weight: bold;
+}
+.table-product .total-bill .payment a:hover{
+    text-decoration: none;
+}
+.table-product .card-item-product{
+    display: none;
+}
+@media(max-width:991px){
+    .table-product .header-table{
+        font-size: 18px;
+      
+    }
+
+    
+    .table-product .quantity button{
+        width: 35px;
+        height: 35px;
+        border: 1px solid #d7d3d3;
+        font-size: 15px;
+        margin:0px 4px;
+    }
+    .table-product .quantity input{
+        font-size: 15px;
+        text-align: center;
+        width: 65px;
+        border: 1px solid #ecdede;
+    }
+    .table-product .item-table{
+       text-align: left;
+        font-size: 15px;
+    }
+}
+@media(max-width:768px){
+    .table{
+        display: none;
+    }
+    .table-product .card-item-product{
+        justify-content: center;
+        width: 100%;
+       display: block;
+       padding: 10px 15px;
+       box-shadow: 0 8px 30px 0 rgb(0 0 0 / 12%);
+        margin: 12px;
+        border-radius: 10px;
+        position: relative;
+        font-size: 18px;
+    }
+    .table-product .card-item-product a{
+        color: black;
+        font-size: 22px;
+        top: 0px;
+        right: 6px;
+        position: absolute;
+    }
+    .table-product .card-item-product .item-product{
+        justify-content: space-between;
+        display: flex;
+        padding: 10px;
+    }
+    .table-product .card-item-product .item-product .title-product{
+        font-size: 19px;
+        font-weight: bold;
+    }
+    .table-product .card-item-product .item-product .name-product{
+        font-weight: bold;
+       
+    }
+    .table-product .card-item-product .item-product .price-product,
+    .table-product .card-item-product .item-product .title-price-product{
+        color: rgb(230, 81, 55);
+    }
+    .table-product .quantity button{
+        width: 25px;
+        height: 25px;
+        margin:0px 4px;
+    }
+    .table-product .quantity input{
+        font-size: 10px;
+        width: 50px;
+       
+    }
+    .table-product .table .item-total{
+        display: none;
+    }
+    .table-product .discount{
+        display: inline;
+    
+    }
+    .table-product .discount input{
+       width: 100%;
+    }
+    .table-product .discount button{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .table-product .total-bill{
+       
+        margin: 30px 5px;
+     
+    }
+}
+

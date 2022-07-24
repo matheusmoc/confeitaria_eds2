@@ -1,0 +1,68 @@
+.check-out{
+    padding:30px;
+}
+.check-out .inf-left{
+    padding: 0px 40px;
+}
+.check-out .inf-left .title-checkout{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+.check-out .inf-left .form-group{
+    width: 100%;
+    padding:0px 50px;
+}
+.check-out .inf-left .form-group input{
+    width: 100%;
+    padding:4px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+.check-out .inf-left .form-group textarea{
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+.check-out .inf-right .btn-checkout{
+    background-color: rgb(230, 81, 55);
+    color: white;
+    margin-left: 50px;
+    margin-top: 30px;
+} 
+
+ hr.height-checkout{
+    padding:2px;
+    background-color:tomato;
+    width: 20%;
+}
+.check-out .inf-right{
+    padding:0px 50px;
+}
+.check-out .inf-right .header-right{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center; 
+}
+.check-out .inf-right .bill{
+    padding: 25px 30px;
+}
+.check-out .inf-right .bill .item-bill{
+    display: flex;
+    font-size: 17px;
+    justify-content: space-between;
+    padding:0px 20px;
+}
+.check-out .inf-right .bill .total-bill-pay{
+    display: flex;
+    font-size: 17px;
+    justify-content: space-between;
+    font-weight: bold;
+    padding:0px 20px;
+}
+.check-out .inf-right .item-pay{
+    padding:15px 45px;
+}
+.check-out .inf-right .item-pay.form-check{
+    padding:0px 20px;
+}
