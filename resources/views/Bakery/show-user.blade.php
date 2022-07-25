@@ -72,7 +72,7 @@
                             
                                 <th scope="col">Código do pedido</th>
                                 <th scope="col">A pagar</th>
-                                <th scope="col">pedido total</th>
+                                <th scope="col">Pedido total</th>
                                 <th scope="col">Data da encomenda</th>
                                 <th scope="col">Status</th>
                             </tr>

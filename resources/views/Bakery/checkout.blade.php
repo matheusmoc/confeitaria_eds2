@@ -22,7 +22,7 @@
     <!-- end banner product -->
     <div class="check-out">
         <div class="conteiner">
-            <form method="POST" action="{{ route('bill') }}">
+            <form method="POST" action="{{ route('bill') }}" name="formulario">
                 @csrf
                 <div class="row justify-content-lg-center justify-content-md-center">
                     <div class="col-12 col-xl-6 col-lg-6 col-md-10 col-sm-12">
@@ -49,11 +49,16 @@
 
                             <div class="form-group">
                                 <label for="address">Endereço</label>
-                                <input class="form-control mb-3 col-md-2" type="text" id="cep" name="address" placeholder="CEP">
-                                <input class="form-control mb-3" type="text" name="address" placeholder="Bairro">
-                                <input class="form-control mb-3" type="text" name="address" placeholder="Rua">
-                                <input class="form-control mb-3" type="text" style="width: 60px"
-                                    name="address" placeholder="Nº">
+                                <input class="form-control mb-3 col-md-2" type="text" id="cep" name="address"
+                                    onblur="pesquisacep(this.value);" placeholder="CEP">
+                                <input class="form-control mb-3" type="text" id="cidade" name="andress"
+                                    placeholder="Cidade" readonly>
+                                <input class="form-control mb-3" type="text" id="rua" name="address"
+                                    placeholder="Bairro" readonly>
+                                <input class="form-control mb-3" type="text" id="bairro" name="address"
+                                    placeholder="Rua" readonly>
+                                <input class="form-control mb-3" type="text" style="width: 60px" name="address"
+                                    placeholder="Nº">
                             </div>
                             <div class="form-group">
                                 <label for="note">Informações adicionais</label>
@@ -105,7 +110,7 @@
                             </div>
 
 
-                            <button type="submit" class="btn btn-checkout">Pagar</button>
+                            <button type="submit" id='pagar' class="btn btn-checkout">Pagar</button>
                         </div>
 
 
@@ -158,5 +163,41 @@
         $("#cep").keypress(function() {
             $(this).mask('00.000-000');
         });
+
+
+        (function() {
+
+            const cep = document.querySelector("input[id=cep]");
+
+            cep.addEventListener('blur', e => {
+                const value = cep.value.replace(/[^0-9]+/, ''); //MASK = PADRÃO
+                const url = `https://viacep.com.br/ws/${value}/json/`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(json => {
+
+                        if (json.logradouro) {
+                            document.querySelector('input[id=rua]').value = json.logradouro;
+                            document.querySelector('input[id=bairro]').value = json.bairro;
+                            document.querySelector('input[id=cidade]').value = json.localidade;
+                            document.querySelector('input[id=estado]').value = json.uf;
+                        }
+                    });
+            });
+        })();
+
+
+
+
+        const cidade = document.querySelector('#cidade')
+        const pagar = document.querySelector('#pagar')
+        pagar.addEventListener('click', event => {
+            if (cidade.value != 'Montes Claros') {
+                event.preventDefault();
+                alert('Infelizmente não entregamos em sua região');
+                cidade.focus();
+            }
+        })
     </script>
 @endsection
