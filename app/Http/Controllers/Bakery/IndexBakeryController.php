@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Session\Session;
 use Exception;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\Validator;
 
 class IndexBakeryController extends Controller
 {
@@ -55,7 +54,7 @@ class IndexBakeryController extends Controller
     //     $response = $request->getBody();
 
     //     return $response;
-    // }    
+    // }
 
     public function product(Request $request)
     {
@@ -227,7 +226,7 @@ class IndexBakeryController extends Controller
         return view('Bakery.search', compact('product', 'key', 'category', 'count_favorite'));
     }
     public function Cart(Request $request)
-    {   
+    {
 
         $count_favorite = 0;
         if (Auth::check()) {
@@ -236,7 +235,7 @@ class IndexBakeryController extends Controller
         }
 
         $product = Product::all();
-        
+
         return view('Bakery.cart', compact('count_favorite', 'product'));
     }
 

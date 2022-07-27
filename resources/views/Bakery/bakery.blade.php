@@ -9,7 +9,7 @@
                 <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-                @foreach ($product_new as $key => $value)
+                @foreach ($product_today as $key => $value)
                     <div class="carousel-item active">
                         <img src="{{ asset('uploads/img/' . $value->image) }}" class="d-block w-100" height="665"
                             alt="...">
@@ -84,10 +84,10 @@
                                     <img src="{{ asset('asset/img/Image/a2.jpg') }}" class="card-img" alt="..."
                                     height="270">
                                 </div>
-                                
+
                             </div>
                         </div>
-                        
+
                         <div class="row pt-4">
                             <div class="col-12 col-xl-6 col-lg-6 col-md-6 col-sm-6  p-2">
                                 <img src="{{ asset('asset/img/Image/a3.jpg') }}" class="card-img image-right"
