@@ -47,6 +47,7 @@
                                     <button class="btn-inc" onclick="incrementValue()" type="button">+</button>
                                 </div>
                             </td>
+
                             @if ($item->sale_price)
                                 <td> R$ <input class="price" type="text" style="border: none;" size="6"
                                         value="{{ number_format($item->sale_price) }}" readonly></td>
@@ -58,6 +59,7 @@
                                 <td> <input class="price-product" type="text" style="border: none;" size="6"
                                         value="{{ number_format($item->price) }}" hidden></td>
                             @endif
+
                             <td>
                                 <a class="btn btn-light text-white" style="background: rgb(245, 93, 38)"
                                     onclick="SaveCart('{{ $key }}')">
@@ -78,7 +80,7 @@
                         <div class="bold">
                             R$ {{ Cart::subtotal(0) }}
                         </div>
-                            
+
                     </tr>
                     <tr class="item-total">
                         <td colspan="7"></td>

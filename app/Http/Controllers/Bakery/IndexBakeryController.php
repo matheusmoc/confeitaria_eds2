@@ -44,17 +44,7 @@ class IndexBakeryController extends Controller
         return view('Bakery.bakery', compact('product_today', 'product_new', 'blog', 'slider', 'user', 'count_favorite'));
     }
 
-    // public function cep($cep){
-    //     $p1 = 'https://viacep.com.br/ws/';
-    //     $p2 = '/json/';
-    //     $url = "$p1$cep$p2";
 
-    //     $client = new \GuzzleHttp\Client();
-    //     $request = $client->get($url);
-    //     $response = $request->getBody();
-
-    //     return $response;
-    // }
 
     public function product(Request $request)
     {
@@ -228,6 +218,7 @@ class IndexBakeryController extends Controller
     public function Cart(Request $request)
     {
 
+
         $count_favorite = 0;
         if (Auth::check()) {
             $user_id = Auth::user()->id;
@@ -239,9 +230,10 @@ class IndexBakeryController extends Controller
         return view('Bakery.cart', compact('count_favorite', 'product'));
     }
 
-    public function add_cart($id)
+    public function add_cart(Request $request, $id)
     {
         $product = Product::where('id', $id)->first();
+
 
         $count_favorite = 0;
         if (Auth::check()) {
@@ -254,7 +246,7 @@ class IndexBakeryController extends Controller
                 'id' => $product->id,
                 'name' =>  $product->name,
                 'qty' => 1,
-                'price' =>  $product->price,
+                'price' => $product->sale_price,
                 'weight' => 0,
                 'options' => array('image' => $product->image)
             ]);
@@ -345,7 +337,7 @@ class IndexBakeryController extends Controller
             'email.unique' => 'E-mail foi conta registrada',
             'password.required' => 'Por favor, digite sua senha para registrar uma conta',
             'password.min' => 'A senha deve ter pelo menos 5 caracteres e menos de 15 caracteres',
-            're_password.same' => "Verifique se a senha não correspondep",
+            're_password.same' => "Verifique se as senhas correspondem",
             Alert::warning('Aviso', 'Por favor, insira as informações completas!')
         ]);
 
@@ -374,7 +366,6 @@ class IndexBakeryController extends Controller
             'email.email' => 'E-mail inválido',
             'password.required' => 'Por favor insira uma senha',
             'password.min' => 'A senha deve ter pelo menos 5 caracteres e menos de 15 caracteres',
-
         ]);
 
         $check = $request->only(['email', 'password']);
