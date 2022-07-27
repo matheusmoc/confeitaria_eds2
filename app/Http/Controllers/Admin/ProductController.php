@@ -55,21 +55,17 @@ class ProductController extends Controller
                 'image' => 'required',
                 'images' => 'required',
                 'price' => 'required',
-                'sale_price' => 'required',
+                // 'sale_price' => 'required',
                 'category_id' => 'required',
                 'status' => 'required',
 
             ],
             [
-                'name.unique' => '
-            Nome do produto já disponível',
-                'name.required' => '
-            O nome do produto não pode ficar em branco',
+                'name.unique' => 'Nome do produto já disponível',
+                'name.required' => 'O nome do produto não pode ficar em branco',
                 'image.required' => 'A imagem não pode ficar em branco',
-                'images.required' => '
-            As imagens relacionadas não podem ficar em branco',
-                'price.required' => '
-            O preço não pode ficar em branco',
+                'images.required' => 'As imagens relacionadas não podem ficar em branco',
+                'price.required' => 'O preço não pode ficar em branco',
 
             ]
         );

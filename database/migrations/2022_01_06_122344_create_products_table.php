@@ -19,9 +19,9 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->string('image');
-            $table->text('image_list');
+            $table->text('image_list')->nullable();
             $table->string('price');
-            $table->string('sale_price');
+            $table->string('sale_price')->nullable();
             $table->integer('category_id');
             $table->string('status');
             $table->timestamps();

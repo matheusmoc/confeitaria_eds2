@@ -14,7 +14,7 @@ class AddPercentSaleToProducts extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('percent_sale');
+            $table->string('percent_sale')->nullable();
         });
     }
 
