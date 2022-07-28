@@ -227,6 +227,7 @@ class IndexBakeryController extends Controller
 
         $product = Product::all();
 
+
         return view('Bakery.cart', compact('count_favorite', 'product'));
     }
 
@@ -247,7 +248,6 @@ class IndexBakeryController extends Controller
                 'name' =>  $product->name,
                 'qty' => 1,
                 'price' => $product->sale_price,
-                'sale_price' => $product->sale_price,
                 'weight' => 0,
                 'options' => array('image' => $product->image)
             ]);
@@ -279,6 +279,23 @@ class IndexBakeryController extends Controller
         }
 
         Cart::update($id, $quantity);
+
+        return view('Bakery.cart', compact('count_favorite'));
+    }
+
+    public function order_date(){
+
+    }
+
+    public function save_date($id, $date)
+    {
+        $count_favorite = 0;
+        if (Auth::check()) {
+            $user_id = Auth::user()->id;
+            $count_favorite = Favorite::where('user_id', $user_id)->get()->count();
+        }
+
+        Cart::update($id, $date);
 
         return view('Bakery.cart', compact('count_favorite'));
     }
@@ -318,6 +335,7 @@ class IndexBakeryController extends Controller
             $detailBill->id_product = $value->id;
             $detailBill->quantity = $value->qty;
             $detailBill->price = $value->price;
+            $detailBill->date_order = $value->date_order;
             $detailBill->save();
         }
         $request->session()->forget('cart');

@@ -80,6 +80,9 @@
                                         <p class="name-product">{{ $item->name }} x {{ $item->qty }}</p>
                                         <p class="price-product">R$ {{ number_format($item->price) }} </p>
                                     </div>
+                                    <div class="item-bill">
+                                        <p>Data da entrega: {{$item->date_order}}</p>
+                                    </div>
                                 @endforeach
                                 <div class="total-bill-pay">
                                     <p class="name-product">Total</p>

@@ -89,7 +89,7 @@
                     <div class=" row product-sort justify-content-end">
                         <label for="sort" class="col-sm-4 col-md-3 col-lg-3 col-xl-2">Ordenado por: </label>
                         <select class=" col-sm-4 col-md-4 col-lg-3" id="option-sort">
-                            <option selected value="1"> Predefinição</option>
+                            <option selected value="1"> Predefinido</option>
                             <option value="2">Preço de baixo a alto</option>
                             <option value="3">Preço de alto a baixo</option>
                         </select>

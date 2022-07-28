@@ -426,7 +426,7 @@
 
         function DeleteComment(id) {
             $.ajax({
-                url: `{{ asset('produtos/delete-comment/${id}') }}`,
+                url: `{{ asset('comentario/delete-comment/${id}') }}`,
                 type: "GET",
 
             }).done(function() {
