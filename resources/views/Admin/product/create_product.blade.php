@@ -46,7 +46,7 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">
-                        Mais produtos</h3>
+                        Criar produto</h3>
                 </div>
                 <form method="POST" action="{{ route('Product.store') }}" enctype="multipart/form-data">
                     @csrf

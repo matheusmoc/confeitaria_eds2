@@ -118,10 +118,12 @@
                                 <a href="{{ url('detalhe-produto/' . $value->id . '/' . $value->slug) }}">
                                     <img src="{{ asset('uploads/img/' . $value->image) }}" width="100%">
 
-                                    @if ($value->sale_price > 0)
+                                    @if ($value->percent_sale > 0)
                                         <div class="sale">
                                             {{ $value->percent_sale }}
                                         </div>
+                                    @elseif ($value->sale_price == $value->price)
+                                    <div class="sale">Disponível</div>
                                     @endif
                                     <div class="favorite">
                                         <a href="#" onclick="favoriteProduct({{ $value->id }})" style="color:red">
@@ -134,7 +136,7 @@
                                 <div class="content-product">
                                     <p class="heading-product">{{ $value->name }}</p>
                                     <div class="price-product">
-                                        @if ($value->sale_price == 0)
+                                        @if ($value->percent_sale == 0 || null)
                                             <span class="price-sale">R$ {{ number_format($value->price) }}</span>
                                         @else
                                             <span class="price">R$ {{ number_format($value->price) }}</span>

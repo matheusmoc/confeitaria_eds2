@@ -4,7 +4,7 @@
     <div class="col-sm-6">
         <ol class="breadcrumb ">
             <li class="breadcrumb-item"><a href="{{ url('/Admin') }}">
-                Pagina inicial</a></li>
+                    Pagina inicial</a></li>
             <li class="breadcrumb-item active">
                 Gestão de produtos</li>
         </ol>
@@ -63,68 +63,67 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>
-                                        Nome do produto</th>
-                                    <th>
-                                        Foto</th>
-                                     <th>
-                                        Categoria</th>
-                                    <th>
-                                        Preço</th>
+                                    <th>Nome do produto</th>
+                                    <th>Foto</th>
+                                    <th>Categoria</th>
+                                    <th>Preço</th>
                                     <th>Desconto</th>
                                     <th>Porcentagem de desconto</th>
-                                    <th>
-                                        Status</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($product as $key => $value)
-                                <tr>
-                                    <td>{{ $value->id }}</td>
-                                    <td>{{ $value->name }}</td>
-                                    <td><img src="{{ asset('uploads/img/'.$value->image) }}" width="100" height="100"></td>
-                                    <td>{{$value->category->category_name  }}</td>
-                                    <td>{{ $value->price }}</td>
-                                    <td>{{ $value->sale_price }}</td>
-                                    <td>{{ $value->percent_sale  }}</td>
-                                    <td>
-                                        @if($value->status==1)
-                                            <span class="text text-success">Ativado</span>
-                                        @else
-                                            <span class="text-danger">Desativado</span>
-                                        @endif
-                                    </td>
+                                @foreach ($product as $key => $value)
+                                    <tr>
+                                        <td>{{ $value->id }}</td>
+                                        <td>{{ $value->name }}</td>
+                                        <td><img src="{{ asset('uploads/img/' . $value->image) }}" width="100"
+                                                height="100"></td>
+                                        <td>{{ $value->category->category_name }}</td>
+                                        <td>{{ $value->price }}</td>
+                                        <td>{{ $value->sale_price }}</td>
+                                        <td>{{ $value->percent_sale }}</td>
+                                        <td>
+                                            @if ($value->status == 1)
+                                                <span class="text text-success">Ativado</span>
+                                            @else
+                                                <span class="text-danger">Desativado</span>
+                                            @endif
+                                        </td>
 
-                                    {{-- <td> 
-                                      @foreach($image2 as $img)
+                                        {{-- <td>
+                                      @foreach ($image2 as $img)
                                        <img src="{{ asset('uploads/img/'.$img) }}" width="40%">
                                       @endforeach
                                     </td> --}}
-                                   
-                                    <td class="d-flex ">
-                                        <a href="{{route('Product.show',[$value->id])}}" class="mr-3 "><i class="fa fa-eye" title="View"></i></a>
-                                        <a href="{{ route('Product.edit',[$value->id]) }}" class="mr-3 "><i class="fas fa-edit " title="Edit"></i></a>
-                                       <form method="POST" action="{{ route('Product.destroy',[$value->id]) }}">
-                                           @method('DELETE')
-                                           @csrf
-                                            <button  onclick="return confirm('Deseja excluir este produto?')" style="border:none;background:none;color: #1b8ffa;">
-                                                <i class="fas fa-trash-alt" title="Delete"></i>
-                                            </button>
-                                        </form>
-                                       
-                                    </td>
-                                   
-                                </tr>
+
+                                        <td class="d-flex ">
+                                            <a href="{{ route('Product.show', [$value->id]) }}" class="mr-3 "><i
+                                                    class="fa fa-eye" title="View"></i></a>
+                                            <a href="{{ route('Product.edit', [$value->id]) }}" class="mr-3 "><i
+                                                    class="fas fa-edit " title="Edit"></i></a>
+                                            <form method="POST" action="{{ route('Product.destroy', [$value->id]) }}">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button onclick="return confirm('Deseja excluir este produto?')"
+                                                    style="border:none;background:none;color: #1b8ffa;">
+                                                    <i class="fas fa-trash-alt" title="Delete"></i>
+                                                </button>
+                                            </form>
+
+                                        </td>
+
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-                     
+
                 </div>
 
-                    <nav aria-label="Page navigation" class="float-right">
-                        {{ $product->appends(request()->all())->links()  }}  
-                   </nav>
+                <nav aria-label="Page navigation" class="float-right">
+                    {{ $product->appends(request()->all())->links() }}
+                </nav>
             </div>
         </div>
 

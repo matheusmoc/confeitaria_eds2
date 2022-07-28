@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Session\Session;
 use Exception;
+use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class IndexBakeryController extends Controller
@@ -218,7 +219,6 @@ class IndexBakeryController extends Controller
     public function Cart(Request $request)
     {
 
-
         $count_favorite = 0;
         if (Auth::check()) {
             $user_id = Auth::user()->id;
@@ -242,11 +242,12 @@ class IndexBakeryController extends Controller
         }
 
         if (isset($product)) {
-            Cart::add([
+            FacadesCart::add([
                 'id' => $product->id,
                 'name' =>  $product->name,
                 'qty' => 1,
                 'price' => $product->sale_price,
+                'sale_price' => $product->sale_price,
                 'weight' => 0,
                 'options' => array('image' => $product->image)
             ]);
