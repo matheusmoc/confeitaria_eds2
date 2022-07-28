@@ -299,6 +299,7 @@ class IndexBakeryController extends Controller
             $count_favorite = Favorite::where('user_id', $user_id)->get()->count();
         }
 
+
         return view('Bakery.checkout', compact('count_favorite'));
     }
 
