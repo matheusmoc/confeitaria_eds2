@@ -97,9 +97,9 @@
 
                     <div id="name-show">
                         <p>
-                            
+
                         </p>
-                       <i class="fa fa-times" aria-hidden="true" onclick="closeFunction()"></i> 
+                       <i class="fa fa-times" aria-hidden="true" onclick="closeFunction()"></i>
                     </div>
 
                     <div class="list-product">
@@ -128,12 +128,12 @@
                                             <div class="price-product">
                                                 @if ($value->sale_price == 0)
                                                     <span
-                                                        class="price-sale">{{ number_format($value->price) }}$</span>
+                                                        class="price-sale">{{ number_format($value->price) }}R$</span>
                                                 @else
                                                     <span
-                                                        class="price">{{ number_format($value->price) }}$</span>
+                                                        class="price">{{ number_format($value->price) }}R$</span>
                                                     <span
-                                                        class="price-sale ">{{ number_format($value->sale_price) }}$</span>
+                                                        class="price-sale ">{{ number_format($value->sale_price) }}R$</span>
                                                 @endif
                                             </div>
                                             <div class="rate-product">
@@ -222,7 +222,7 @@
         })
 
         function closeFunction(){
-            window.location.reload(); 
+            window.location.reload();
         }
 
         function favoriteProduct(id) {

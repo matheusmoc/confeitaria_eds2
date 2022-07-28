@@ -86,7 +86,11 @@
                         <div class="content-detail">
                             <div class="price-detail">
                                 <div class="title-detail">
+                                    @if ($detail_product->sale_price > 0)
+                                    <p>Preço: <span> R$ {{ number_format($detail_product->sale_price) }} </span></p>
+                                    @else
                                     <p>Preço: <span> R$ {{ number_format($detail_product->price) }} </span></p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="rate-detail">
