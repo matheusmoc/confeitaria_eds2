@@ -9,7 +9,7 @@ class DetailBill extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id_bill','id_product','quantity','price'
+        'id_bill','id_product','quantity','price', 'date_order'
     ];
 
     protected $primaryKey ='id';

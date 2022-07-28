@@ -61,15 +61,11 @@ class ProductController extends Controller
 
             ],
             [
-                'name.unique' => '
-            Nome do produto já disponível',
-                'name.required' => '
-            O nome do produto não pode ficar em branco',
+                'name.unique' => 'Nome do produto já disponível',
+                'name.required' => 'O nome do produto não pode ficar em branco',
                 'image.required' => 'A imagem não pode ficar em branco',
-                'images.required' => '
-            As imagens relacionadas não podem ficar em branco',
-                'price.required' => '
-            O preço não pode ficar em branco',
+                'images.required' => 'As imagens relacionadas não podem ficar em branco',
+                'price.required' => 'O preço não pode ficar em branco',
 
             ]
         );
@@ -168,13 +164,9 @@ class ProductController extends Controller
             ],
 
             [
-                'name.unique' => '
-            Nome do produto já disponível',
-                'name.required' => '
-            O nome do produto não pode ser oculto',
-                'price.required' => '
-            O preço não pode ficar em branco',
-
+                'name.unique' => 'Nome do produto já disponível',
+                'name.required' => 'O nome do produto não pode ser oculto',
+                'price.required' => 'O preço não pode ficar em branco',
             ]
         );
 

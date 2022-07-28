@@ -71,7 +71,7 @@ Route::prefix('/Admin')->group(function(){
 
 //-----------------------Bakery---------------------------------
 
- 
+
 
 
 
@@ -88,7 +88,7 @@ Route::prefix('/Admin')->group(function(){
 
         Route::get('/detalhe-blog/{id}/{slug}',[IndexBakeryController::class,'detail_blog']);
 
-        
+
          Route::get('/produtos/search',[IndexBakeryController::class,'search_ajax'])->name('search_ajax');
 
          Route::get('/categorias/{id}',[IndexBakeryController::class,'category_ajax'])->name('category_ajax');
@@ -108,10 +108,11 @@ Route::prefix('/Admin')->group(function(){
         Route::get('/deletar-do-carrinho/{id}',[IndexBakeryController::class,'delete_cart'])->name('delete_cart');
 
         Route::get('/salvar-no-carrinho/{id}/{qty}',[IndexBakeryController::class,'save_cart'])->name('save_cart');
+        Route::get('/salvar-data/{id}/{date}',[IndexBakeryController::class,'save_date'])->name('save_date');
 
 
 
-  
+
         Route::get('/pagamento',[IndexBakeryController::class,'pay_bill'])->name('pay_bill');
 
 
@@ -124,7 +125,7 @@ Route::prefix('/Admin')->group(function(){
         // log out
         Route::get('/log-out', [SocialController::class,'logOut'])->name('logOut');
 
- 
+
          Route::post('/registro',[IndexBakeryController::class,'post_register'])->name('postregister');
 
 
