@@ -17,7 +17,7 @@
     </div>
     <!-- end banner product -->
     <div class="table-product">
-        <div class="container-fluid">
+        <div class="container">
 
             <table class="table">
                 <tr class="header-table" style="width: 100%">
@@ -26,7 +26,6 @@
                     <th scope="col-2">Quantidade</th>
                     <th scope="col-2">Preço unitário</th>
                     <th scope="col-2" colspan="1"></th>
-                    <th scope="col-2">Data da entrega desejada</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -44,7 +43,7 @@
                                     <button class="btn-dec" onclick="decrementValue()" type="button">-</button>
 
                                     <input class="qty" type="text" id="qty-{{ $key }}" name="quantity"
-                                        value="{{ $item->qty }}" min="1" max="50" readonly>
+                                        value="{{ $item->qty }}" min="1" max="3" readonly>
 
                                     <button class="btn-inc" onclick="incrementValue()" type="button">+</button>
 
@@ -66,50 +65,6 @@
                                 <td> <input class="price-product" type="text" style="border: none;" size="6"
                                         value="{{ number_format($item->price) }}" hidden></td>
                             @endif
-
-
-
-
-                            <td class="col-3">
-                                <label class="text-danger font-weight-bolder">Antes de finalizar o
-                                    pagamento, por favor
-                                    selecione uma data de entrega desejada</label>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal2">
-                                    Agendar
-                                </button>
-                            </td>
-                            <!-- Modal -->
-
-                            {{-- <form action="{{ route('') }}" method="post"></form>
-                            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            <div class="modal-body">
-                                                <input class="form-control" type="date" name="date_order">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </form> --}}
-                            <!-- Button trigger modal -->
 
 
                             <td class="icon-delete">
@@ -263,7 +218,6 @@
         function SaveCart(id) {
             const qty = document.querySelector('#qty-' + id).value;
 
-
             console.log(qty);
             $.ajax({
                 url: `{{ url('salvar-no-carrinho/${id}/${qty}') }}`,
@@ -279,6 +233,31 @@
                 }
             });
         }
+
+        // function SaveDate(id) {
+        //     $.ajax({
+        //         headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //         },
+        //         url: `{{ asset('salvar-data/${id}') }}`,
+        //         type: "GET",
+        //     }).done(function(response) {
+        //         if (response) {
+
+        //             if (response.fail) {
+        //                 alertify.warning(response.fail);
+        //             } else {
+        //                 alertify.success('Data agendada adicionado com sucesso');
+        //             }
+
+        //             setTimeout(() => {
+
+        //                 location.reload();
+        //             }, 1000);
+        //         }
+
+        //     });
+        // }
 
 
 

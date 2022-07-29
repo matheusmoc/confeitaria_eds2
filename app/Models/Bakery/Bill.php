@@ -9,7 +9,7 @@ class Bill extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id','total_id','pay','note','address','phone','status'
+        'user_id','total_id','pay','note','address','phone','status', 'date_order'
     ];
 
     protected $primaryKey ='id';

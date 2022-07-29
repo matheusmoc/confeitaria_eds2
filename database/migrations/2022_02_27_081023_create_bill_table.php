@@ -22,6 +22,7 @@ class CreateBillTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('status');
+            $table->string('date_order');
             $table->timestamps();
         });
     }

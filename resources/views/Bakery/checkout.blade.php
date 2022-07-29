@@ -22,7 +22,7 @@
     <!-- end banner product -->
     <div class="check-out">
         <div class="conteiner">
-            <form method="POST" action="{{ route('bill') }}" name="formulario">
+            <form method="POST" action="{{ route('bill') }}">
                 @csrf
                 <div class="row justify-content-lg-center justify-content-md-center">
                     <div class="col-12 col-xl-6 col-lg-6 col-md-10 col-sm-12">
@@ -80,21 +80,34 @@
                                         <p class="name-product">{{ $item->name }} x {{ $item->qty }}</p>
                                         <p class="price-product">R$ {{ number_format($item->price) }} </p>
                                     </div>
-                                    <div class="item-bill">
-                                        <p>Data da entrega: {{$item->date_order}}</p>
-                                    </div>
                                 @endforeach
                                 <div class="total-bill-pay">
                                     <p class="name-product">Total</p>
                                     <p class="price-product">R$ {{ Cart::subtotal(0) }} </p>
                                 </div>
 
+                                <hr class="m-4">
+
+                                <div class="col-md-12">
+                                    <label class="font-weight-bolder ">
+                                        <div class="alert alert-danger " role="alert">
+                                            Antes de finalizar o pagamento, por favor selecione uma data de entrega
+                                            desejada.
+                                        </div>
+                                    </label>
+                                    <div>
+                                        <input class="form-control" type="date" name="date_order">
+                                    </div>
+                                </div>
                             </div>
+
+                            <hr class="m-4">
+
                             <div class="header-right">
-                                <div class="title-checkout">Forma de pagamento</div>
+                                <div class="title-checkout">Formas de pagamento</div>
                                 <!-- <hr class="height-checkout"> -->
                             </div>
-                            <div class="item-pay">
+                            <div class="item-pay mt-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="pay" id="exampleRadios1"
                                         value="1">
@@ -112,8 +125,11 @@
                                 </div>
                             </div>
 
+                            <div>
+                                <button type="submit" id='pagar'
+                                class="btn btn-checkout w-75 font-weight-bold p-3">Realizar pagamento</button>
+                            </div>
 
-                            <button type="submit" id='pagar' class="btn btn-checkout">Pagar</button>
                         </div>
 
 
@@ -161,8 +177,6 @@
             }
         }
 
-
-
         $("#cep").keypress(function() {
             $(this).mask('00.000-000');
         });
@@ -189,9 +203,6 @@
                     });
             });
         })();
-
-
-
 
         const cidade = document.querySelector('#cidade')
         const pagar = document.querySelector('#pagar')

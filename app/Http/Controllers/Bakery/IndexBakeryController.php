@@ -14,6 +14,7 @@ use App\Models\Bakery\Contact;
 use App\Models\Bakery\Favorite;
 use App\Models\Bakery\Bill;
 use App\Models\Bakery\DetailBill;
+use App\Models\Bakery\DateOrder;
 use App\Models\User;
 use Cart;
 use Illuminate\Support\Facades\DB;
@@ -283,10 +284,6 @@ class IndexBakeryController extends Controller
         return view('Bakery.cart', compact('count_favorite'));
     }
 
-    public function order_date(){
-
-    }
-
     public function save_date($id, $date)
     {
         $count_favorite = 0;
@@ -299,6 +296,7 @@ class IndexBakeryController extends Controller
 
         return view('Bakery.cart', compact('count_favorite'));
     }
+
 
     public function pay_bill()
     {
@@ -327,6 +325,7 @@ class IndexBakeryController extends Controller
         $bill->note = $request->note;
         $bill->address = $request->address;
         $bill->phone = $request->phone;
+        $bill->date_order = $request->date_order;
         $bill->status = 'new';
         $bill->save();
 
@@ -336,7 +335,6 @@ class IndexBakeryController extends Controller
             $detailBill->id_product = $value->id;
             $detailBill->quantity = $value->qty;
             $detailBill->price = $value->price;
-            $detailBill->date_order = $value->date_order;
             $detailBill->save();
         }
         $request->session()->forget('cart');
@@ -524,9 +522,9 @@ class IndexBakeryController extends Controller
 
         try {
             if (Auth::check()) {
-                if (isset($list_drink) && count($list_drink) > 0) {
-                    return response(['fail' => 'O produto esgotou']);
-                }
+                // if (isset($list_drink) && count($list_drink) > 0) {
+                //     return response(['fail' => 'O produto esgotou']);
+                // }
                 DB::table('favorites')->insert([
                     'product_id' => $product->id,
                     'user_id' => Auth::user()->id

@@ -9,7 +9,7 @@ class DetailBill extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id_bill','id_product','quantity','price', 'date_order'
+       'id_bill','id_product','id_dater_order','quantity','price'
     ];
 
     protected $primaryKey ='id';
@@ -22,4 +22,5 @@ class DetailBill extends Model
     public function product(){
         return $this->belongsTo('App\Models\Admin\Product','id_product','id');
     }
+
 }

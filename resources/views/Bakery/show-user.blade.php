@@ -34,7 +34,7 @@
             display: flex;
         }
 
-     
+
     </style>
 @endsection
 
@@ -53,7 +53,7 @@
         </div>
 
     </div>
-    <div class="container infor-user">
+    <div class="container-fluid infor-user">
         <div class="row">
             <div class="col-12 col-lg-4 col-md-4 border-table">
                 <div class="list-group list-group-flush">
@@ -69,11 +69,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                            
+
                                 <th scope="col">Código do pedido</th>
                                 <th scope="col">A pagar</th>
                                 <th scope="col">Pedido total</th>
-                                <th scope="col">Data da encomenda</th>
+                                <th scope="col">Data de realização do pedido</th>
+                                <th scope="col">Data de entrega sugerida por você</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
@@ -92,6 +93,7 @@
                                     </td>
                                     <td>{{ $value->total }}</td>
                                     <td>{{ $value->created_at }}</td>
+                                    <td>{{ $value->date_order }}</td>
                                     <td>
                                         @if($value->status == "new")
                                             <p class="text-warning">Aguardando confirmação</p>

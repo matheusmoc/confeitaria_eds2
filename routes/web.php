@@ -108,7 +108,8 @@ Route::prefix('/Admin')->group(function(){
         Route::get('/deletar-do-carrinho/{id}',[IndexBakeryController::class,'delete_cart'])->name('delete_cart');
 
         Route::get('/salvar-no-carrinho/{id}/{qty}',[IndexBakeryController::class,'save_cart'])->name('save_cart');
-        Route::get('/salvar-data/{id}/{date}',[IndexBakeryController::class,'save_date'])->name('save_date');
+
+        Route::get('/salvar-data/{id}',[IndexBakeryController::class,'save_date'])->name('save_date');
 
 
 
