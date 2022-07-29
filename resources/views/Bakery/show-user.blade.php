@@ -86,7 +86,7 @@
                                         @if($value->pay == 1)
                                             <p>...</p>
                                         @elseif($value->pay == 2)
-                                            <p>Pague no caixa eletrônico</p>
+                                            <p>Pagamento no cartão</p>
                                         @elseif($value->pay == 3)
                                             <p>Pagamento na entrega</p>
                                         @endif
@@ -98,9 +98,9 @@
                                         @if($value->status == "new")
                                             <p class="text-warning">Aguardando confirmação</p>
                                         @elseif($value->status == "confirm")
-                                            <p class="text-success">Confirmação do pedido</p>
+                                            <p class="text-success">Pedido confirmado</p>
                                         @elseif($value->status == "cancel")
-                                            <p class="text-danger">Cancelar pedido</p>
+                                            <p class="text-danger">Pedido cancelado</p>
                                         @else
                                             <p class="text-primary">Entrega em andamento</p>
                                         @endif

@@ -16,9 +16,9 @@ for (var i = 0; i < incrementButton.length; i++) {
 
         input.value = newValue;
 
-        if (newValue > 30) {
-            input.value = 30;
-            alertify.alert('Por favor, compre apenas um máximo de 30 produtos!!').set('frameless', true); 
+        if (newValue > 3) {
+            input.value = 3;
+            alertify.alert('Por favor, compre apenas um máximo de 3 produtos!!').set('frameless', true);
         } else {
             input.value = newValue;
         }
@@ -52,6 +52,6 @@ $("input[name='quantity']").keyup(function () {
 
     var key = $(this).val();
     if (key > 30) {
-        alertify.alert('Por favor, compre apenas um máximo de 30 produtos!!').set('frameless', true); 
+        alertify.alert('Por favor, compre apenas um máximo de 30 produtos!!').set('frameless', true);
     }
 })

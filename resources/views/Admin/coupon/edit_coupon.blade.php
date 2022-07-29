@@ -4,9 +4,9 @@
 @section('breadcrumb')
     <div class="col-sm-6">
         <ol class="breadcrumb ">
-            <li class="breadcrumb-item"><a href="{{ url('/Admin') }}">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('Coupon.index') }}">Quản lý khuyến mãi</a></li>
-            <li class="breadcrumb-item active">Cập nhật</li>
+            <li class="breadcrumb-item"><a href="{{ url('/Admin') }}">Página inicial</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('Coupon.index') }}">Gerenciamento de promoções</a></li>
+            <li class="breadcrumb-item active">Atualizar</li>
         </ol>
 
     </div>
@@ -115,7 +115,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
                 </form>
             </div>
