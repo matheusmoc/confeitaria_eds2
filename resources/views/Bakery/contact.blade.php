@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label for="contact-text">Mensagem</label>
-                            <textarea id="contact-text" rows="3" name="content"  placeholder="informações"></textarea>
+                            <textarea id="contact-text" rows="3" name="content"></textarea>
                         </div>
                         <button type="submit" class="btn btn-submit">Enviar</button>
                     </form>
