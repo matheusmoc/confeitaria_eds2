@@ -7,11 +7,11 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
- 
+
   <link rel="stylesheet" href="{{ asset('asset/AdminLTE/plugins/fontawesome-free/css/all.min.css') }}">
   <link rel="stylesheet" href="{{ asset('asset/AdminLTE/dist/css/adminlte.min.css') }}">
  @yield('css')
- 
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -45,12 +45,12 @@
     <div class="sidebar">
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          
+
           <li class="nav-item">
-            
+
             <a href="{{ route('Order.order') }}" class="nav-link">
               <i class="fas fa-file-alt"></i>
-              <p> 
+              <p>
                 Gerenciamento de pedidos</p>
             </a>
           </li>
@@ -64,7 +64,7 @@
           <li class="nav-item">
             <a href="{{ route('Product.index') }}" class="nav-link">
               <i class="fas fa-hamburger"></i>
-              <p> 
+              <p>
                 Gestão de produtos</p>
             </a>
           </li>
@@ -74,24 +74,24 @@
           <li class="nav-item">
             <a href="{{ route('Customer.customer') }}" class="nav-link">
               <i class="fas fa-users"></i>
-              <p> 
+              <p>
                 Gerenciar usuários</p>
             </a>
           </li>
-
+{{--
           <li class="nav-item">
             <a href="{{ route('Coupon.index') }}" class="nav-link">
               <i class="fas fa-tags"></i>
-              <p> 
+              <p>
                 Gerenciamento de promoções</p>
             </a>
-          </li>
+          </li> --}}
 
-          
+
           <li class="nav-item">
             <a href="{{ route('Comment.index') }}" class="nav-link">
               <i class="fas fa-user-edit"></i>
-              <p> 
+              <p>
                 Gerenciar comentários</p>
             </a>
           </li>
@@ -121,7 +121,7 @@
                   <p>Gerenciar postagens</p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
 
@@ -143,20 +143,20 @@
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-         
+
             @yield('breadcrumb')
-          
+
         </div>
       </div>
     </div>
     <div class="content">
-     
+
       @yield('content')
-         
+
 
     </div>
   </div>
- 
+
 </div>
 
 <!-- CSS -->

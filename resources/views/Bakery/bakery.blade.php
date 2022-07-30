@@ -118,13 +118,18 @@
                                 <a href="{{ url('detalhe-produto/' . $value->id . '/' . $value->slug) }}">
                                     <img src="{{ asset('uploads/img/' . $value->image) }}" width="100%">
 
-                                    @if ($value->percent_sale > 0)
+
+                                    @if ($value->status != 1)
+                                    <div class="sale text-danger font-weight-bold">Esgotado</div>
+                                    @elseif ($value->percent_sale > 0)
                                         <div class="sale">
                                             {{ $value->percent_sale }}
                                         </div>
                                     @elseif ($value->sale_price == $value->price)
                                     <div class="sale">Disponível</div>
                                     @endif
+
+
                                     <div class="favorite">
                                         <a href="#" onclick="favoriteProduct({{ $value->id }})" style="color:red">
                                             <i class="{{ $value->like ? 'fa fa-heart' : 'fa fa-heart-o text-dark' }}"
@@ -150,6 +155,14 @@
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
+                                    @if ($value->status == '0')
+                                    <div class="order-product" style="background-color: rgb(202, 10, 10);">
+                                        <a href="javascript:" title="Esgotado" disabled>
+                                            Esgotado
+                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    @else
                                     <div class="order-product">
                                         <a href="javascript:" onclick="AddCart({{ $value->id }})"
                                             title="Adicionar ao carrinho">
@@ -157,6 +170,7 @@
                                             <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                         </a>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -338,6 +352,7 @@
     @section('js')
         <script src="{{ asset('asset/js/bakery/owl.carousel.min.js') }}"></script>
         <script>
+
             function favoriteProduct(id) {
                 $.ajax({
 
@@ -345,19 +360,15 @@
                     type: "GET",
                 }).done(function(response) {
                     if (response) {
-
                         if (response.fail) {
                             alertify.warning(response.fail);
                         } else {
                             alertify.success('Favorito adicionado com sucesso');
                         }
-
                         setTimeout(() => {
-
                             location.reload();
                         }, 1000);
                     }
-
                 });
             }
         </script>

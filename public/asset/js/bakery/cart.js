@@ -47,11 +47,10 @@ for (var i = 0; i < decrementButton.length; i++) {
     })
 }
 
-
 $("input[name='quantity']").keyup(function () {
 
     var key = $(this).val();
-    if (key > 30) {
-        alertify.alert('Por favor, compre apenas um máximo de 30 produtos!!').set('frameless', true);
+    if (key > 3) {
+        alertify.alert('Por favor, compre apenas um máximo de 3 produtos!!').set('frameless', true);
     }
 })

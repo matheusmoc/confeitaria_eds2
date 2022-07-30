@@ -96,7 +96,7 @@
                                         </div>
                                     </label>
                                     <div>
-                                        <input class="form-control" type="date" name="date_order">
+                                       <input class="form-control" type="datetime-local" id="" name="date_order">
                                     </div>
                                 </div>
                             </div>
