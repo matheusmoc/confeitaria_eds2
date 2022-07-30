@@ -79,7 +79,7 @@
                                         <td>{{ $value->rating }}</td>
                                         <td>
                                             <form method="GET" action="{{ route('delete_comment',[$value->id]) }}">
-               
+
                                                 <button onclick="return confirm('Deseja excluir este comentário?')"
                                                     style="border:none;background:none;color: #1b8ffa;">
                                                     <i class="fas fa-trash-alt" title="Delete"></i>

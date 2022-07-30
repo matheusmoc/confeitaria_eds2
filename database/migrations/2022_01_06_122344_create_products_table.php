@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->nullable();
             $table->string('status');
             $table->timestamps();
+
         });
     }
 
