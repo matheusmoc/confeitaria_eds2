@@ -78,7 +78,7 @@
 
                             <div class="col-10 col-md-4 col-lg-4 col-sm-6 p-3">
                                 <div class="card-product ">
-                                    <a href="{{ url('detalhe-produto/' . $value->id . '/' . $value->slug) }}">
+                                    <a href="{{ url('detalhe-produto/' . $value->product->id . '/' . $value->product->slug) }}">
                                         <img src="{{ asset('uploads/img/' . $value->product->image) }}" width="100%">
 
                                         @if ($value->status != 1)
