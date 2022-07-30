@@ -160,13 +160,13 @@
                             @csrf
                             <div class="rate-comment">
                                 Classificação por estrelas
-                                <div class="rate-star">
+                                {{-- <div class="rate-star">
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
+                                </div> --}}
                                 <div id="rateYo"></div>
 
                                 <div class="form-group">
