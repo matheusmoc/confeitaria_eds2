@@ -231,6 +231,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Product::find($id)->delete();
-        return redirect()->back()->with('status', 'Excluir produto com sucesso');
+        return redirect()->back()->with('status', 'Exclusão de produto feita com sucesso');
     }
 }

@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->text('image_list')->nullable();
             $table->string('price');
             $table->string('sale_price')->nullable();
-            $table->integer('category_id');
+            $table->integer('category_id')->nullable();
             $table->string('status');
             $table->timestamps();
         });

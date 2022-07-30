@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Category;
+use App\Models\Admin\Product;
 
 class CategoryController extends Controller
 {
@@ -17,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::orderBy('id', 'DESC')->search()->paginate(7);
-       
+
         return view('Admin.category.index_category',compact('category'));
     }
 
@@ -44,14 +45,14 @@ class CategoryController extends Controller
             'category_slug'=>'required',
             'category_status'=>'required',
             'category_type'=>'required'
-            
+
         ],
         [
             'category_name.unique'=> 'O nome da categoria já existe',
             'category_name.required'=> 'O nome da categoria não pode ficar vazio',
             'category_slug.required'=> 'Slug não pode estar vazio'
-           
-     
+
+
         ]
     );
 
@@ -103,14 +104,14 @@ class CategoryController extends Controller
             'category_slug'=>'required',
             'category_status'=>'required',
             'category_type'=>'required'
-            
+
         ],
         [
             // 'category_name.unique'=> 'O nome da categoria já existe',
             'category_name.required'=> 'O nome da categoria não pode ficar vazio',
             'category_slug.required'=> 'Slug não pode estar vazio'
-           
-     
+
+
         ]
     );
 
@@ -133,7 +134,15 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id)->delete();
-        return redirect()->back()->with('status','Exclusão de categoria efetuada com sucesso');
+        {
+            $product = Product::find($id);
+
+            if($product){
+                return redirect()->back()->with('status', 'Exclua os produtos desta cateogria primeiro');
+            }else{
+                Category::find($id)->delete();
+                return redirect()->back()->with('status', 'Exclusão de categoria feita com sucesso');
+            }
+        }
     }
 }
