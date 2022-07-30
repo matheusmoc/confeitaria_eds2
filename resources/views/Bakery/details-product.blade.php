@@ -114,10 +114,18 @@
                                     </div>
                                 </div>
                             </div>
+                            @if ($detail_product->status == 1)
                             <div class="buy-now">
                                 <a href="javascript:" onclick="AddCart('{{ $detail_product->id }}')"
                                     class="btn btn-lg btn-buy" role="button">Encomendar agora</a>
                             </div>
+                            @else
+                            <div class="buy-now">
+                                <a href="#" class="btn btn-lg btn-buy" style="background-color:brown; border:none" role="button" disabled>Esgotado</a>
+                            </div>
+                            @endif
+
+
                             <div class="share-product pt-3">
                                 <div class="title-detail">
                                     <p>Compartilhe:</p>
