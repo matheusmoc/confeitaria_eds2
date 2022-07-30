@@ -14,14 +14,16 @@
                         <img src="{{ asset('uploads/img/' . $value->image) }}" class="d-block w-100" height="665"
                             alt="...">
                         <div class="carousel-caption banner0 d-none d-md-block">
-                            <h1 class="animate__animated animate__slideInDown"> <span style="color: rgb(219, 5, 5);">Dê uma olhada em nossa novidade </span>desconto por tempo limitado</h1>
+                            <h1 class="animate__animated animate__slideInDown"> <span style="color: rgb(219, 5, 5);">Dê uma
+                                    olhada em nossa novidade </span>desconto por tempo limitado</h1>
                             <a href="{{ url('detalhe-produto/' . $value->id . '/' . $value->slug) }}" type="button"
                                 class="btn btn-danger btn-lg">Encomendar agora!</a>
                         </div>
                     </div>
                 @endforeach
                 <div class="carousel-item">
-                    <img src="{{ asset('asset/img/Image/banner-3.jpg') }}" class="d-block w-100" alt="..." height="665">
+                    <img src="{{ asset('asset/img/Image/banner-3.jpg') }}" class="d-block w-100" alt="..."
+                        height="665">
                     <div class="carousel-caption banner1 d-none d-md-block d-sm-block">
                         <h1 class=" animate__animated animate__zoomIn">Ganhe 50% de desconto</h1>
                         <p class=" animate__animated animate__zoomIn">somente esta semana</p>
@@ -29,7 +31,8 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('asset/img/Image/banner-1.jpg') }}" class="d-block w-100" alt="..." height="665">
+                    <img src="{{ asset('asset/img/Image/banner-1.jpg') }}" class="d-block w-100" alt="..."
+                        height="665">
                     <div class="carousel-caption banner2 d-none d-md-block">
                         <h1 class="animate__animated animate__slideInDown">Ganhe <span>50%</span> de desconto em nossos
                             produtos</h1>
@@ -55,8 +58,9 @@
         <div class="image-cake">
             <div class="row">
                 <div class="card text-white card-left d-block mt-3">
-                    <img src="{{ asset('asset/img/Image/a1.jpg') }}" class="card-img" alt="..." height=750; style="width: 117em">
-                    <div class="card-img-overlay" >
+                    <img src="{{ asset('asset/img/Image/a1.jpg') }}" class="card-img" alt="..." height=750;
+                        style="width: 117em">
+                    <div class="card-img-overlay">
                         <p class="card-title ">O favorito da galera</p>
                     </div>
                 </div>
@@ -120,13 +124,13 @@
 
 
                                     @if ($value->status != 1)
-                                    <div class="sale text-danger font-weight-bold">Esgotado</div>
+                                        <div class="sale text-danger font-weight-bold">Esgotado</div>
                                     @elseif ($value->percent_sale > 0)
                                         <div class="sale">
                                             {{ $value->percent_sale }}
                                         </div>
                                     @elseif ($value->sale_price == $value->price)
-                                    <div class="sale">Disponível</div>
+                                        <div class="sale">Disponível</div>
                                     @endif
 
 
@@ -156,20 +160,20 @@
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
                                     @if ($value->status == '0')
-                                    <div class="order-product" style="background-color: rgb(202, 10, 10);">
-                                        <a href="javascript:" title="Esgotado" disabled>
-                                            Esgotado
-                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                        <div class="order-product" style="background-color: rgb(202, 10, 10);">
+                                            <a href="javascript:" title="Esgotado" disabled>
+                                                Esgotado
+                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
                                     @else
-                                    <div class="order-product">
-                                        <a href="javascript:" onclick="AddCart({{ $value->id }})"
-                                            title="Adicionar ao carrinho">
-                                            Adicionar ao carrinho
-                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                        <div class="order-product">
+                                            <a href="javascript:" onclick="AddCart({{ $value->id }})"
+                                                title="Adicionar ao carrinho">
+                                                Adicionar ao carrinho
+                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
                                     @endif
                                 </div>
                             </div>
@@ -225,11 +229,18 @@
                                 <div class="card-product ">
                                     <a href="{{ url('detalhe-produto/' . $value->id . '/' . $value->slug) }}">
                                         <img src="{{ asset('uploads/img/' . $value->image) }}" width="100%">
-                                        @if ($value->sale_price > 0)
+
+                                        @if ($value->status != 1)
+                                        <div class="sale text-danger font-weight-bold">Esgotado</div>
+                                        @elseif ($value->percent_sale > 0)
                                             <div class="sale">
                                                 {{ $value->percent_sale }}
                                             </div>
+                                        @elseif ($value->sale_price == $value->price)
+                                        <div class="sale">Disponível</div>
                                         @endif
+
+
                                         <div class="favorite">
                                             <a href="#" onclick="favoriteProduct({{ $value->id }})"
                                                 style="color:red">
@@ -258,13 +269,22 @@
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
-                                        <div class="order-product">
-                                            <a href="javascript:" onclick="AddCart({{ $value->id }})"
-                                                title="
-                                            Adicionar ao carrinho">
-                                                Adicionar ao carrinho<i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
+                                        @if ($value->status == '0')
+                                            <div class="order-product" style="background-color: rgb(202, 10, 10);">
+                                                <a href="javascript:" title="Esgotado" disabled>
+                                                    Esgotado
+                                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        @else
+                                            <div class="order-product">
+                                                <a href="javascript:" onclick="AddCart({{ $value->id }})"
+                                                    title="Adicionar ao carrinho">
+                                                    Adicionar ao carrinho
+                                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -352,7 +372,6 @@
     @section('js')
         <script src="{{ asset('asset/js/bakery/owl.carousel.min.js') }}"></script>
         <script>
-
             function favoriteProduct(id) {
                 $.ajax({
 
