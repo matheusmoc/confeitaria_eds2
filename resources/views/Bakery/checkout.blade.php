@@ -72,7 +72,7 @@
                         <div class="inf-right">
                             <div class="header-right">
                                 <div class="title-checkout">Meus pedidos</div>
-                                <!-- <hr class="height-checkout"> -->
+                             <hr class="height-checkout">
                             </div>
                             <div class="bill">
                                 @foreach (Cart::content() as $key => $item)
@@ -105,15 +105,50 @@
 
                             <div class="header-right">
                                 <div class="title-checkout">Formas de pagamento</div>
-                                <!-- <hr class="height-checkout"> -->
+                                <hr class="height-checkout">
                             </div>
                             <div class="item-pay mt-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="pay" id="exampleRadios1"
-                                        value="1">
-                                    {{-- <label class="form-check-label" for="exampleRadios1">
-                                        ....
-                                    </label> --}}
+                                    <input class="form-check-input" data-toggle="modal" type="radio" name="pay"
+                                        id="exampleRadios1" value="1">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Cartão de crédito / débito
+                                    </label>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Dados do cartão</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                   <select>
+                                                    <option value="1">Matercard</option>
+                                                    <option value="2">Visa</option>
+                                                    <option value="3">Elo</option>
+                                                   </select>
+                                                   <input type="text" name="" id="">
+                                                   <input type="text" name="" id="">
+                                                   <input type="text" name="" id="">
+                                                   <input type="text" name="" id="">
+                                                   <label for="cod">Cód.</label>
+                                                   <input size='6' type="text" name="cod" id="" placeholder="CVV">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="form-check">
@@ -124,15 +159,11 @@
                                     </label>
                                 </div>
                             </div>
-
                             <div>
                                 <button type="submit" id='pagar'
-                                class="btn btn-checkout w-75 font-weight-bold p-3">Realizar pagamento</button>
+                                    class="btn btn-checkout w-75 font-weight-bold p-3">Realizar pagamento</button>
                             </div>
-
                         </div>
-
-
                     </div>
                 </div>
             </form>
@@ -212,6 +243,12 @@
                 alert('Infelizmente não entregamos em sua região');
                 cidade.focus();
             }
-        })
+        });
+
+        $('#exampleRadios1').on('change', function() {
+            if ($(this).val() == "1") {
+                $('#exampleModalLong').modal('show');
+            }
+        });
     </script>
 @endsection

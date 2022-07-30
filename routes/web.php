@@ -140,8 +140,8 @@ Route::prefix('/Admin')->group(function(){
 
 
         //comment-product-ajax
-        // Route::get('/comment/{product_id}',[IndexBakeryController::class,'comment_ajax'])->name('comment_ajax');
-        Route::get('/comentario/delete-comment/{id}',[IndexBakeryController::class,'delete_comment_ajax'])->name('delete_comment_ajax');
+        Route::get('/comment/{product_id}',[IndexBakeryController::class,'comment_ajax'])->name('comment_ajax');
+        Route::get('/comment/delete-comment/{id}',[IndexBakeryController::class,'delete_comment_ajax'])->name('delete_comment_ajax');
 
         //comment-product
         Route::get('/comment-product',[IndexBakeryController::class,'comment_product'])->name('comment_product');

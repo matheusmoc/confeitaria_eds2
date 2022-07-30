@@ -34,8 +34,9 @@
                 <nav class="nav-header">
                     <div class="logo-header">
                         <div class="logo mt-3 mr-4">
-                                <a href="{{ route('index') }}" class="title-blog" style="text-decoration: none; color:palevioletred; margin-right:20px;">Cantinho Doce</a>
-                                {{-- <img src="{{ asset('#') }}"
+                            <a href="{{ route('index') }}" class="title-blog"
+                                style="text-decoration: none; color:palevioletred; margin-right:20px;">Cantinho Doce</a>
+                            {{-- <img src="{{ asset('#') }}"
                                     class="animate__animated animate__bounce" width="130px" height="90px"> --}}
 
                         </div>
@@ -94,8 +95,9 @@
                                 <div class="modal-content">
                                     <ul class="nav nav-tabs header-form" id="myTab" role="tablist">
                                         <li class="nav-item title-form " role="presentation">
-                                            <a class="nav-link active" id="log-in" data-toggle="tab" href="#login"
-                                                role="tab" aria-controls="home" aria-selected="true">Home</a>
+                                            <a class="nav-link active" id="log-in" data-toggle="tab"
+                                                href="#login" role="tab" aria-controls="home"
+                                                aria-selected="true">Home</a>
                                         </li>
                                         <li class="nav-item title-form " role="presentation">
                                             <a class="nav-link " id="register-tab" data-toggle="tab"
@@ -132,10 +134,10 @@
 
                                                     </div>
                                                     <div class="form-group ">
-                                                        <input type="password" placeholder="Senha"
-                                                            name="password">
+                                                        <input type="password" placeholder="Senha" name="password">
                                                     </div>
-                                                    <button type="submit" class="btn btn-login" id="btn-login">Conectar</button>
+                                                    <button type="submit" class="btn btn-login"
+                                                        id="btn-login">Conectar</button>
                                                     <div class="social-user">
                                                         <p class="heading-social text-center">Logar com: </p>
                                                         <div class="social-list">
@@ -152,7 +154,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="register-account">Não possui uma conta?
-                                                        <a data-toggle="tab" href="#register" data-toggle="tab">Resgistrar-se</a>
+                                                        <a data-toggle="tab" href="#register"
+                                                            data-toggle="tab">Resgistrar-se</a>
                                                     </div>
                                                 </form>
                                             </div>
@@ -187,14 +190,14 @@
                                                         <input type="email" placeholder="E-mail" name="email">
                                                     </div>
                                                     <div class="form-group ">
-                                                        <input type="password"  placeholder="Senha"
-                                                            name="password">
+                                                        <input type="password" placeholder="Senha" name="password">
                                                     </div>
                                                     <div class="form-group ">
-                                                        <input type="password"
-                                                            placeholder="Confirmar senha" name="re-password">
+                                                        <input type="password" placeholder="Confirmar senha"
+                                                            name="re-password">
                                                     </div>
-                                                    <button type="submit" class="btn btn-signup" id="btn-signup">Registrar</button>
+                                                    <button type="submit" class="btn btn-signup"
+                                                        id="btn-signup">Registrar</button>
                                                 </form>
                                             </div>
 
@@ -243,7 +246,8 @@
                                             <h3>INSCREVA-SE PARA RECEBER NOVIDADES</h3>
                                         </div>
                                         <div class="title-mail">
-                                            <p>Inscreva-se para receber informações promocionais e atualizações de produtos mais recentes do Cantinho doce.</p>
+                                            <p>Inscreva-se para receber informações promocionais e atualizações de
+                                                produtos mais recentes do Cantinho doce.</p>
                                         </div>
                                         <div class="form-mail">
                                             <form class="form-inline">
@@ -289,10 +293,13 @@
                                         <hr class="footer-line">
                                         <div class="footer-item">
                                             <ul>
-                                                <li><i class="fa fa-home" aria-hidden="true"></i> Rua Doutor Luís França de Souza, Morada do sol, 395, Montes Claros - MG</li>
-                                                <li><i class="fa fa-phone-square" aria-hidden="true"></i> (38) 99143-5365
+                                                <li><i class="fa fa-home" aria-hidden="true"></i> Rua Doutor Luís
+                                                    França de Souza, Morada do sol, 395, Montes Claros - MG</li>
+                                                <li><i class="fa fa-phone-square" aria-hidden="true"></i> (38)
+                                                    99143-5365
                                                 </li>
-                                                <li><i class="fa fa-envelope" aria-hidden="true"></i> cantinhodoce@gmail.com
+                                                <li><i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    cantinhodoce@gmail.com
                                                 </li>
                                             </ul>
                                         </div>
@@ -347,17 +354,18 @@
         @include('sweetalert::alert')
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>
 
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
+            integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
         </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-                crossorigin="anonymous"></script>
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script> --}}
 
 

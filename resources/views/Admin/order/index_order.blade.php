@@ -54,22 +54,15 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>
-                                        Cliente</th>
-                                    <th>
-                                        Número de telefone</th>
-                                    <th>
-                                        Endereço</th>
-                                    <th>
-                                        Forma de pagamento</th>
-                                    <th>
-                                        Data da reserva</th>
-                                    <th>
-                                        Pedido total</th>
+                                    <th>Cliente</th>
+                                    <th>Número de telefone</th>
+                                    <th>Endereço</th>
+                                    <th>Forma de pagamento</th>
+                                    <th>Data da realização do pedido</th>
+                                    <th>Data de entrega sugerida pelo cliente</th>
+                                    <th>Pedido total</th>
                                     <th></th>
-                                    <th>
-                                        Status</th>
-
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,6 +83,7 @@
                                             @endif
                                         </td>
                                         <td>{{ $value->created_at }}</td>
+                                        <td>{{ $value->date_order }}</td>
                                         <td>{{ $value->total }}</td>
                                         <td class="d-flex ">
                                             <a href="{{ route('Order.show', [$value->id]) }}" class="mr-3 ">Ver detalhes</a>
@@ -144,7 +138,7 @@
             document.getElementById('order{{ $key }}').addEventListener( 'change',() =>{
             let status = document.getElementById('order{{ $key }}').value;
 
-        
+
             $.ajax({
                 url: "{{ route('confirm_order') }}",
                 data: {
@@ -156,10 +150,10 @@
                     if(response) {
                         alertify.success('Atualizado com sucesso');
                         setTimeout(() => {
-            
+
                             location.reload();
                         }, 1000);
-        
+
                     }
                  });
             })
