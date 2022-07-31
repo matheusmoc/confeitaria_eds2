@@ -54,9 +54,9 @@
                                 <input class="form-control mb-3" type="text" id="cidade" name="andress"
                                     placeholder="Cidade" readonly>
                                 <input class="form-control mb-3" type="text" id="rua" name="address"
-                                    placeholder="Bairro" readonly>
-                                <input class="form-control mb-3" type="text" id="bairro" name="address"
                                     placeholder="Rua" readonly>
+                                <input class="form-control mb-3" type="text" id="bairro" name="address"
+                                    placeholder="Bairro" readonly>
                                 <input class="form-control mb-3" type="text" style="width: 60px" name="address"
                                     placeholder="Nº">
                             </div>
