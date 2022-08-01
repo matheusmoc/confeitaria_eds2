@@ -24,9 +24,25 @@ use Illuminate\Contracts\Session\Session;
 use Exception;
 use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 use RealRashid\SweetAlert\Facades\Alert;
+use PagSeguro\Configuration\Configure;
 
 class IndexBakeryController extends Controller
 {
+    private $_configs;
+
+    //CONFIGURAÇÃO DE AMBIENTE
+    public function __construct(){
+        $this->_configs = new Configure();
+        $this->_configs->setCharset('UTF-8');
+        $this->_configs->setAccountCredentials(env('PAGSEGURO_EMAIL'), env('PAGSEGURO_TOKEN'));
+        $this->_configs->setEnvironment(env('PAGSEGURO_AMBIENTE'));
+        $this->_configs->setLog(true, \storage_path('logs/pagseguro_'.date('Ymd').'.log'));
+    }
+
+    public function getCredential(){
+        return $this->_configs->getAccountCredentials();
+    }
+
     public function index()
     {
         $product_today = Product::orderBy('id', 'DESC')->paginate(1);
@@ -50,7 +66,7 @@ class IndexBakeryController extends Controller
 
     public function product(Request $request)
     {
-        $product = Product::orderBy('id', 'ASC')->paginate(9);
+        $product = Product::orderBy('id', 'ASC')->paginate(15);
 
         $category = Category::where('category_type', 1)->get();
 
@@ -111,7 +127,7 @@ class IndexBakeryController extends Controller
         $detail_blog = Blog::where('id', $req->id, $req->slug)->first();
         $tag = explode(',', $detail_blog->tag_blog);
 
-        // $comment_user = CommentBlog::where('blog_id', $req->id)->get();
+        $comment_user = CommentBlog::where('blog_id', $req->id)->get();
 
         $count_favorite = 0;
         if (Auth::check()) {
@@ -306,8 +322,17 @@ class IndexBakeryController extends Controller
             $count_favorite = Favorite::where('user_id', $user_id)->get()->count();
         }
 
+        $data = [];
 
-        return view('Bakery.checkout', compact('count_favorite'));
+        //pegar token de acesso do pagseguro
+        $sessionCode = \PagSeguro\Services\Session::create(
+            $this->getCredential()
+        );
+
+        $IDSession = $sessionCode->getResult();
+        $data['sessionID'] = $IDSession;
+
+        return view('Bakery.checkout', $data, compact('count_favorite'));
     }
 
     public function bill(Request $request)
@@ -340,6 +365,7 @@ class IndexBakeryController extends Controller
         $request->session()->forget('cart');
         return view('Bakery.success', compact('count_favorite'));
     }
+
     public function post_register(Request $request)
     {
         $data = $request->validate([
@@ -573,4 +599,6 @@ class IndexBakeryController extends Controller
 
         return view('Bakery.favorite-user', compact('count_favorite', 'product'));
     }
+
+
 }

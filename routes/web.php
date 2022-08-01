@@ -116,6 +116,9 @@ Route::prefix('/Admin')->group(function(){
 
         Route::get('/pagamento',[IndexBakeryController::class,'pay_bill'])->name('pay_bill');
 
+        //credit card route
+        Route::match(['get', 'post'], '/pagar', [IndexAdminController::class, 'pay_card'])->name('pay_card');
+
 
         Route::post('/conta',[IndexBakeryController::class,'bill'])->name('bill');
 

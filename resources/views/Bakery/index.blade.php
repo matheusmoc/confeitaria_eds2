@@ -66,7 +66,7 @@
                                 <form action="{{ route('search_product') }}" method="GET">
                                     <i class="fa fa-times icon-close" id="icon-close" aria-hidden="true"></i>
                                     <input type="text" value="{{ old('tukhoa') }}" name="search"
-                                        placeholder="Procurando bolos ...">
+                                        placeholder="Procurar produtos...">
                                     <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                 </form>
 
