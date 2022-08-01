@@ -337,6 +337,27 @@ class IndexBakeryController extends Controller
 
     public function bill(Request $request)
     {
+
+        $data = $request->validate([
+
+            'phone' => 'required|min:12',
+            'note' => 'min:5|max:500',
+            'address' => 'required',
+            'date_order' => 'required',
+
+
+        ], [
+            'note.min' => 'Insira no mínimo 5 caracteres',
+            'note.max' => 'Ultrapassou número máximo de caracteres',
+            'phone.required' => 'Por favor, digite seu telefone',
+            'phone.min' => 'Telefone inválido',
+            'address.required' => 'Por favor, informe seu endereço',
+            'date_order.required' =>  'Por favor, informe a data desejada',
+            Alert::warning('Aviso', 'Por favor, insira as informações completas!'),
+        ]);
+
+
+
         $count_favorite = 0;
         if (Auth::check()) {
             $user_id = Auth::user()->id;
