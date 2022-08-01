@@ -58,11 +58,8 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>
-                                        Nome do membro</th>
-                                    <th>
-                                        Nome do produto</th>
-
+                                    <th>Nome do membro</th>
+                                    <th>Nome do produto</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,6 +68,7 @@
                                         <td>{{ $value->id }}</td>
                                         <td>{{ $value->user->email }}</td>
                                         <td>{{ $value->product->name }}</td>
+                                        <td>{{ $value->id->sum(); }}</td>
                                     </tr>
                                 @endforeach
 

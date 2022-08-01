@@ -139,10 +139,8 @@ class BlogController extends Controller
                 'name_blog.required' => 'O título do post não pode ficar em branco',
                 'slug_blog.required' => 'Slug não pode estar vazio',
                 'synopsis_blog.required' => 'O resumo do artigo não pode ser deixado em branco',
-                'category_blog.required' => '
-            As categorias não podem ficar vazias',
-                'description_blog.required' => '
-            O conteúdo da postagem não pode ser deixado em branco',
+                'category_blog.required' => 'As categorias não podem ficar vazias',
+                'description_blog.required' => 'O conteúdo da postagem não pode ser deixado em branco',
                 'tag_blog.required' => 'A tag não pode ficar em branco',
                 'status_blog.required' => 'O status não pode ficar vazio'
             ]

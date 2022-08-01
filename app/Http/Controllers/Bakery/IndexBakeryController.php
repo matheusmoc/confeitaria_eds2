@@ -53,13 +53,22 @@ class IndexBakeryController extends Controller
 
         $slider = Slider::all();
 
+
+        $count_favorite_item = Favorite::with('user_id')->get()->count();
+        // dd($count_favorite2);
+
+
+
+
         $count_favorite = 0;
         if (Auth::check()) {
             $user_id = Auth::user()->id;
             $count_favorite = Favorite::where('user_id', $user_id)->get()->count();
+
         }
 
-        return view('Bakery.bakery', compact('product_today', 'product_new', 'blog', 'slider', 'user', 'count_favorite'));
+
+        return view('Bakery.bakery', compact('product_today', 'product_new', 'blog', 'slider', 'user', 'count_favorite', 'count_favorite_item'));
     }
 
 

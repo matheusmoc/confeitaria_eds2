@@ -20,16 +20,18 @@ class IndexAdminController extends Controller
         $order = Bill::where('status','new')->count();
         $user = User::all()->count();
 
-        // $total = FacadesDB::table('bill')->sum('total');
+        $total = FacadesDB::table('bill')->sum('total');
 
         $bill = Bill::where('status','new')->get();
         if(request()->date_from && request()->date_to){
             $bill = Bill::where('status','new')->whereBetween('created_at',[request()->date_from,request()->date_to])->get();
         }
 
+
+
         return view('Admin.admin',compact('order','user','bill'));
     }
-    
+
     public function comment()
     {
         $comment = Comment::all();
@@ -38,7 +40,7 @@ class IndexAdminController extends Controller
 
         return view('Admin.comment.index_comment', compact('comment', 'user', 'product'));
     }
-    
+
     public function delete_comment($id){
 
         Comment::find($id)->delete();

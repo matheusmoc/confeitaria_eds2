@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="heading-product">
                 <div class="title-product">Contato</div>
-                <a>Pagina inicial</a>
+                <a>Página inicial</a>
                 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                 <a>Contato</a>
             </div>

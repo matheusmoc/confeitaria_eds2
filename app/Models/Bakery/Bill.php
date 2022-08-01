@@ -12,8 +12,13 @@ class Bill extends Model
         'user_id','total_id','pay','note','address','phone','status', 'date_order'
     ];
 
+    protected $dates = ['date_order', 'created_at', 'updated_at'];
+
     protected $primaryKey ='id';
     protected $table ='bill';
+
+
+
 
     public function user(){
         return $this->belongsTo('App\Models\User','user_id','id');
