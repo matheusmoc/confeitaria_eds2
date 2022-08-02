@@ -171,12 +171,12 @@
             </ul>
           </li>
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{ route('Favorite.favorite_cus') }}" class="nav-link">
               <i class="fas fa-heart"></i>
               <p>Gerenciar favoritos</p>
             </a>
-          </li>
+          </li> --}}
 
 
         </ul>
