@@ -590,8 +590,8 @@ class IndexBakeryController extends Controller
             $user_id = Auth::user()->id;
             $count_favorite = Favorite::where('user_id', 'sale_price', 'price')->get()->count();
 
-            return view('Bakery.cart', compact('count_favorite'));
         }
+        return view('Bakery.cart', compact('count_favorite'));
     }
 
     public function information_user()
