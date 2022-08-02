@@ -255,29 +255,6 @@ class IndexBakeryController extends Controller
         return view('Bakery.cart', compact('count_favorite', 'product'));
     }
 
-    public function add_cart(Request $request, $id)
-    {
-        $product = Product::where('id', $id)->first();
-
-
-        $count_favorite = 0;
-        if (Auth::check()) {
-            $user_id = Auth::user()->id;
-            $count_favorite = Favorite::where('user_id', 'sale_price', 'price')->get()->count();
-
-            if (isset($product)) {
-                FacadesCart::add([
-                    'id' => $product->id,
-                    'name' =>  $product->name,
-                    'qty' => 1,
-                    'price' => $product->sale_price,
-                    'weight' => 0,
-                    'options' => array('image' => $product->image)
-                ]);
-            }
-            return view('Bakery.cart', compact('count_favorite'));
-        }
-    }
 
     public function delete_cart($id)
     {
@@ -480,6 +457,7 @@ class IndexBakeryController extends Controller
         Alert::success('Sucesso', 'Comentario postado!');
         return redirect()->back();
     }
+
     public function delete_comment_ajax($id)
     {
         $comment = Comment::find($id)->delete();
@@ -588,6 +566,31 @@ class IndexBakeryController extends Controller
             }
         } catch (Exception $e) {
             $mess = "Não há favoritos";
+        }
+    }
+
+
+    public function add_cart(Request $request, $id)
+    {
+        $product = Product::where('id', $id)->first();
+
+        if (isset($product)) {
+            FacadesCart::add([
+                'id' => $product->id,
+                'name' =>  $product->name,
+                'qty' => 1,
+                'price' => $product->sale_price,
+                'weight' => 0,
+                'options' => array('image' => $product->image)
+            ]);
+        }
+
+        $count_favorite = 0;
+        if (Auth::check()) {
+            $user_id = Auth::user()->id;
+            $count_favorite = Favorite::where('user_id', 'sale_price', 'price')->get()->count();
+
+            return view('Bakery.cart', compact('count_favorite'));
         }
     }
 
