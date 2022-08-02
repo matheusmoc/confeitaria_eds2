@@ -388,7 +388,7 @@
 
             function AddCart(id) {
                 $.ajax({
-                    url: `{{ asset('adicionar-carrinho/${id}') }}`,
+                    url: `{{ asset('https://cantinho-doce.herokuapp.com/adicionar-carrinho/${id}') }}`,
                     type: "GET",
                 }).done(function(response) {
                     console.log(response);
