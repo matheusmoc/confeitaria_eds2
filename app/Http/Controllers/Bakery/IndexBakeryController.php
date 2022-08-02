@@ -54,7 +54,7 @@ class IndexBakeryController extends Controller
         $slider = Slider::all();
 
 
-        $count_favorite_item = Favorite::with('user_id')->get()->count();
+
         // dd($count_favorite2);
 
 
@@ -68,7 +68,7 @@ class IndexBakeryController extends Controller
         }
 
 
-        return view('Bakery.bakery', compact('product_today', 'product_new', 'blog', 'slider', 'user', 'count_favorite', 'count_favorite_item'));
+        return view('Bakery.bakery', compact('product_today', 'product_new', 'blog', 'slider', 'user', 'count_favorite'));
     }
 
 
