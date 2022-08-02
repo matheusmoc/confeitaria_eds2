@@ -151,7 +151,7 @@
     <script>
         function AddCart(id) {
             $.ajax({
-                url: `https://cantinho-doce.herokuapp.com/carrinho/${id}') }}`,
+                url: `{{ asset('adicionar-carrinho/${id}/') }}`,
                 type: "GET",
             }).done(function(response) {
                 if (response) {
@@ -159,7 +159,7 @@
                     setTimeout(() => {
 
                         location.reload();
-                    });
+                    }, 1000);
                 }
             });
         }
