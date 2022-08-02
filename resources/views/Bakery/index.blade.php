@@ -370,8 +370,8 @@
 
 
         @yield('js')
-
         <script async src="{{ asset('asset/js/bakery/index.js') }}"></script>
+        <script src="{{ asset('asset/js/bakery/owl.carousel.min.js') }}"></script>
 
         <script>
             $('.search-ajax').keyup(function() {
@@ -395,11 +395,14 @@
                     type: "GET",
                 }).done(function(response) {
                     if (response) {
-                        alertify.success('Produto adicionado');
-                        // setTimeout(() => {
-
-                        //     location.reload();
-                        // }, 1000);
+                        if (response.fail) {
+                            alertify.warning(response.fail);
+                        } else {
+                            alertify.success('Produto adicionado ao carrinho!');
+                        }
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
                     }
                 });
             }
