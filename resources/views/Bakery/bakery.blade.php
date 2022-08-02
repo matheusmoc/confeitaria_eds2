@@ -272,7 +272,7 @@
                                         </div>
                                         @if ($value->status == '0')
                                             <div class="order-product" style="background-color: rgb(202, 10, 10);">
-                                                <a href="javascript:" title="Esgotado" disabled>
+                                                <a href="#" title="Esgotado" disabled>
                                                     Esgotado
                                                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                                 </a>
