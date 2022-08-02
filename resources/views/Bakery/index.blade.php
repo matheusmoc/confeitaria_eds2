@@ -395,11 +395,7 @@
                     type: "GET",
                 }).done(function(response) {
                     if (response) {
-                        if (response.fail) {
-                            alertify.warning(response.fail);
-                        } else {
-                            alertify.success('Produto adicionado ao carrinho!');
-                        }
+                        alertify.success("Pedido atualizado");
                         setTimeout(() => {
                             location.reload();
                         }, 1000);
