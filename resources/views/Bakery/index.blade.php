@@ -390,15 +390,15 @@
 
             function AddCart(id) {
                 $.ajax({
-
-                    url: `{{ asset('adicionar-carrinho/${id}/') }}`,
+                    url: `{{ asset('adicionar-carrinho/${id}') }}`,
                     type: "GET",
                 }).done(function(response) {
+                    console.log(response);
                     if (response) {
                         alertify.success("Produto adicionado ao carrinho");
-                        // setTimeout(() => {
-                        //     location.reload();
-                        // }, 1000);
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
                     }
                 });
             }

@@ -197,20 +197,19 @@
     <script src="{{ asset('asset/js/bakery/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('asset/js/bakery/cart.js') }}"></script>
     <script>
-        function DeleteCart(id) {
+
+
+    function DeleteCart(id) {
             $.ajax({
                 url: `{{ asset('deletar-do-carrinho/${id}') }}`,
                 type: "GET",
-
             }).done(function(response) {
                 console.log(response);
                 if (response) {
                     alertify.success('Excluído com sucesso');
                     setTimeout(() => {
-
                         location.reload();
                     }, 1000);
-
                 }
             });
         }

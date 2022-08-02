@@ -272,14 +272,14 @@
                                         </div>
                                         @if ($value->status == '0')
                                             <div class="order-product" style="background-color: rgb(202, 10, 10);">
-                                                <a href="#" title="Esgotado" disabled>
+                                                <a href="" title="Esgotado" disabled>
                                                     Esgotado
                                                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                                 </a>
                                             </div>
                                         @else
                                             <div class="order-product">
-                                                <a href="#" onclick="AddCart({{ $value->id }})"
+                                                <a href="" onclick="AddCart({{ $value->id }})"
                                                     title="Adicionar ao carrinho">
                                                     Adicionar ao carrinho
                                                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
