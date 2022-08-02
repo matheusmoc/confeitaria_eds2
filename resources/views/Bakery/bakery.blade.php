@@ -372,40 +372,4 @@
 
     @section('js')
         <script src="{{ asset('asset/js/bakery/owl.carousel.min.js') }}"></script>
-        <script>
-            function favoriteProduct(id) {
-                $.ajax({
-
-                    url: `{{ asset('favoritos/${id}') }}`,
-                    type: "GET",
-                }).done(function(response) {
-                    if (response) {
-                        if (response.fail) {
-                            alertify.warning(response.fail);
-                        } else {
-                            alertify.success('Favorito adicionado com sucesso');
-                        }
-                        setTimeout(() => {
-                            location.reload();
-                        });
-                    }
-                });
-            }
-
-
-            // function AddCart(id) {
-            //     $.ajax({
-            //         url: `{{ asset('adicionar-carrinho/${id}/') }}`,
-            //         type: "GET",
-            //     }).done(function(response) {
-            //         if (response) {
-            //             alertify.success('Produto adicionado');
-            //             setTimeout(() => {
-
-            //                 location.reload();
-            //             });
-            //         }
-            //     });
-            // }
-        </script>
     @endsection
