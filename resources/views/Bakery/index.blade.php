@@ -395,10 +395,10 @@
                     type: "GET",
                 }).done(function(response) {
                     if (response) {
-                        alertify.success("Pedido atualizado");
-                        setTimeout(() => {
-                            location.reload();
-                        }, 1000);
+                        alertify.success("Produto adicionado ao carrinho");
+                        // setTimeout(() => {
+                        //     location.reload();
+                        // }, 1000);
                     }
                 });
             }
