@@ -81,7 +81,7 @@
                                     <a href="{{ url('detalhe-produto/' . $value->product->id . '/' . $value->product->slug) }}">
                                         <img src="{{ asset('uploads/img/' . $value->product->image) }}" width="100%">
 
-                                        @if ($value->status != 1)
+                                        @if ($value->status == '0')
                                         <div class="sale text-danger font-weight-bold">Esgotado</div>
                                         @elseif ($value->percent_sale > 0)
                                             <div class="sale">
@@ -119,7 +119,7 @@
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
-                                        @if ($value->status == 0)
+                                        @if ($value->status == '0')
                                         <div class="order-product" style="background-color: rgb(202, 10, 10);">
                                             <a href="javascript:" title="Esgotado" disabled>
                                                 Esgotado
