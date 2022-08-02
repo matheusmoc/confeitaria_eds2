@@ -13,7 +13,6 @@ class Bill extends Model
     ];
 
     protected $dates = ['date_order', 'created_at', 'updated_at'];
-
     protected $primaryKey ='id';
     protected $table ='bill';
 
