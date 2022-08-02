@@ -232,13 +232,13 @@
                                         <img src="{{ asset('uploads/img/' . $value->image) }}" width="100%">
 
                                         @if ($value->status != 1)
-                                        <div class="sale text-danger font-weight-bold">Esgotado</div>
+                                            <div class="sale text-danger font-weight-bold">Esgotado</div>
                                         @elseif ($value->percent_sale > 0)
                                             <div class="sale">
                                                 {{ $value->percent_sale }}
                                             </div>
                                         @elseif ($value->sale_price == $value->price)
-                                        <div class="sale">Disponível</div>
+                                            <div class="sale">Disponível</div>
                                         @endif
 
 
@@ -387,25 +387,25 @@
                         }
                         setTimeout(() => {
                             location.reload();
-                        }, 1000);
+                        });
                     }
                 });
             }
 
 
-            function AddCart(id) {
-                $.ajax({
-                    url: `{{ asset('adicionar-carrinho/${id}/') }}`,
-                    type: "GET",
-                }).done(function(response) {
-                    if (response) {
-                        alertify.success('Produto adicionado');
-                        setTimeout(() => {
+            // function AddCart(id) {
+            //     $.ajax({
+            //         url: `{{ asset('adicionar-carrinho/${id}/') }}`,
+            //         type: "GET",
+            //     }).done(function(response) {
+            //         if (response) {
+            //             alertify.success('Produto adicionado');
+            //             setTimeout(() => {
 
-                            location.reload();
-                        }, 1000);
-                    }
-                });
-            }
+            //                 location.reload();
+            //             });
+            //         }
+            //     });
+            // }
         </script>
     @endsection
