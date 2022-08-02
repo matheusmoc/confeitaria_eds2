@@ -93,7 +93,7 @@
                                     </td>
                                     <td>{{ $value->total }}</td>
                                     <td>{{ $value->created_at->format('m/d/Y') }}</td>
-                                    <td>{{ $value->date_order->format('m/d/Y') }}</td>
+                                    <td>{{ Carbon\Carbon::parse($value->date_order)->format('m/d/Y') }}</td>
                                     <td>
                                         @if($value->status == "new")
                                             <p class="text-warning">Aguardando confirmação</p>
