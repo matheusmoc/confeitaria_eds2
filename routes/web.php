@@ -29,7 +29,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 //------------------- Admin--------------------------------
 
-Route::prefix('/Admin')->group(function(){
+Route::middleware(['auth'])->prefix('/Admin')->group(function(){
 
      Route::resource('/', IndexAdminController::class);
      Route::get('/Admin',[IndexAdminController::class,'index']);
@@ -159,3 +159,11 @@ Route::prefix('/Admin')->group(function(){
     });
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
