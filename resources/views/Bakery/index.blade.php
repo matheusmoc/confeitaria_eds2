@@ -159,7 +159,6 @@
                                                     </div>
                                                 </form>
                                             </div>
-
                                             <div class="tab-pane fade" id="register" role="tabpanel"
                                                 aria-labelledby="register-tab">
                                                 <form action="{{ route('postregister') }}" method="POST"
@@ -340,6 +339,9 @@
                     <p class="text-center p-2">Cantinho Doce &copy; 2022</p>
                 </div>
 
+
+
+
             </footer>
             <!-- end footer -->
             <div class="scroll" onclick="topFunction()" id="scroll">
@@ -388,16 +390,16 @@
 
             function AddCart(id) {
                 $.ajax({
-                    url: `{{ asset('adicionar-carrinho/${id}') }}`,
+
+                    url: `{{ asset('adicionar-carrinho/${id}/') }}`,
                     type: "GET",
                 }).done(function(response) {
-                    console.log(response);
                     if (response) {
                         alertify.success('Produto adicionado');
-                        setTimeout(() => {
+                        // setTimeout(() => {
 
-                            location.reload();
-                        });
+                        //     location.reload();
+                        // }, 1000);
                     }
                 });
             }
