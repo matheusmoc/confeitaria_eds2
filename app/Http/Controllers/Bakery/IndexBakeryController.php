@@ -58,8 +58,6 @@ class IndexBakeryController extends Controller
         // dd($count_favorite2);
 
 
-
-
         $count_favorite = 0;
         if (Auth::check()) {
             $user_id = Auth::user()->id;
@@ -266,21 +264,19 @@ class IndexBakeryController extends Controller
         if (Auth::check()) {
             $user_id = Auth::user()->id;
             $count_favorite = Favorite::where('user_id', 'sale_price', 'price')->get()->count();
+
+            if (isset($product)) {
+                FacadesCart::add([
+                    'id' => $product->id,
+                    'name' =>  $product->name,
+                    'qty' => 1,
+                    'price' => $product->sale_price,
+                    'weight' => 0,
+                    'options' => array('image' => $product->image)
+                ]);
+            }
+            return view('Bakery.cart', compact('count_favorite'));
         }
-
-        if (isset($product)) {
-            FacadesCart::add([
-                'id' => $product->id,
-                'name' =>  $product->name,
-                'qty' => 1,
-                'price' => $product->sale_price,
-                'weight' => 0,
-                'options' => array('image' => $product->image)
-            ]);
-        }
-
-
-        return view('Bakery.cart', compact('count_favorite'));
     }
 
     public function delete_cart($id)
