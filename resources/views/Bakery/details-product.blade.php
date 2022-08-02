@@ -483,6 +483,24 @@
 
             });
         }
+
+
+        function AddCart(id) {
+            $.ajax({
+                url: `{{ asset('adicionar-carrinho/${id}/') }}`,
+                type: "GET",
+            }).done(function(response) {
+                if (response) {
+                    alertify.success('Produto adicionado');
+                    setTimeout(() => {
+
+                        location.reload();
+                    }, 1000);
+                }
+            });
+        }
+
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 @endsection
