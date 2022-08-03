@@ -395,7 +395,7 @@
                 }).done(function(response) {
                     console.log(response);
                     if (response) {
-                        alertify.success("Produto adicionado ao carrinho");
+                        alertify.success("Produto adicionado ao carrinho")
                         setTimeout(() => {
                             location.reload();
                         }, 1000);
