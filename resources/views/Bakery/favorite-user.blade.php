@@ -104,11 +104,11 @@
                                         <p class="heading-product">{{ $value->product->name }}</p>
                                         <div class="price-product">
                                             @if ($value->sale_price == $value->price)
-                                                <span class="price-sale">{{ number_format($value->product->price) }}
+                                                <span class="price-sale">{{ number_format((float)$value->product->price, 2, '.', '') }}
                                                     R$</span>
                                             @else
-                                                <span class="price">{{ number_format($value->product->price) }} R$</span>
-                                                <span class="price-sale ">{{ number_format($value->product->sale_price) }}
+                                                <span class="price">{{ number_format((float)$value->product->price, 2, '.', '') }} R$</span>
+                                                <span class="price-sale ">{{ number_format((float)$value->product->sale_price, 2, '.', ''(float)) }}
                                                     R$</span>
                                             @endif
                                         </div>

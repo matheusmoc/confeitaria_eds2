@@ -56,14 +56,14 @@
 
                             @if ($item->sale_price)
                                 <td> R$ <input class="price" type="text" style="border: none;" size="6"
-                                        value="{{ number_format($item->sale_price) }}" readonly></td>
+                                        value="{{ number_format((float)$item->sale_price, 2, '.', '') }}" readonly></td>
                                 <td> <input class="price-product" type="text" style="border: none;" size="6"
-                                        value="{{ number_format($item->sale_price) }}" hidden></td>
+                                        value="{{ number_format((float)$item->sale_price, 2, '.', '') }}" hidden></td>
                             @else
                                 <td> R$ <input class="price" type="text" style="border: none;" size="6"
-                                        value="{{ number_format($item->price) }}" readonly></td>
+                                        value="{{ number_format((float)$item->price, 2, '.', '') }}" readonly></td>
                                 <td> <input class="price-product" type="text" style="border: none;" size="6"
-                                        value="{{ number_format($item->price) }}" hidden></td>
+                                        value="{{ number_format((float)$item->price, 2, '.', '') }}" hidden></td>
                             @endif
 
 
@@ -100,7 +100,7 @@
                     </div>
                     <div class="item-product">
                         <div class="title-product">Preço:</div>
-                        <div class="price-product">R$ {{ number_format($item->price) }}</div>
+                        <div class="price-product">R$ {{ number_format((float)$item->price, 2, '.', '') }}</div>
                     </div>
                     <div class="item-product">
                         <div class="title-product">Quantidade:</div>
@@ -124,7 +124,7 @@
                     <div class="item-product">
                         <div class="title-product title-price-product">Total:</div>
 
-                        <div id="price" class="price-product">R$ {{ number_format($item->price * $item->qty) }}
+                        <div id="price" class="price-product">R$ {{ number_format((float)$item->price * $item->qty, 2, '.', '') }}
                         </div>
 
                     </div>

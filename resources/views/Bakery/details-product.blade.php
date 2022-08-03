@@ -87,9 +87,9 @@
                             <div class="price-detail">
                                 <div class="title-detail">
                                     @if ($detail_product->sale_price > 0)
-                                    <p>Preço: <span> R$ {{ number_format($detail_product->sale_price) }} </span></p>
+                                    <p>Preço: <span> R$ {{ number_format((float)$detail_product->sale_price, 2, '.', '') }} </span></p>
                                     @else
-                                    <p>Preço: <span> R$ {{ number_format($detail_product->price) }} </span></p>
+                                    <p>Preço: <span> R$ {{ number_format((float)$detail_product->price, 2, '.', '') }} </span></p>
                                     @endif
                                 </div>
                             </div>
@@ -363,10 +363,10 @@
                                     <p class="heading-product">{{ $value->name }}</p>
                                     <div class="price-product">
                                         @if ($value->sale_price == 0)
-                                            <span class="price-sale">R$ {{ number_format($value->price) }}</span>
+                                            <span class="price-sale">R$ {{ number_format((float)$value->price, 2, '.', '') }}</span>
                                         @else
-                                            <span class="price">R$ {{ number_format($value->price) }}</span>
-                                            <span class="price-sale ">R$ {{ number_format($value->sale_price) }}</span>
+                                            <span class="price">R$ {{ number_format((float)$value->price, 2, '.', '') }}</span>
+                                            <span class="price-sale ">R$ {{ number_format((float)$value->sale_price, 2, '.', '') }}</span>
                                         @endif
                                     </div>
                                     <div class="rate-product">

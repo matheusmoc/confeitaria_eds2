@@ -133,10 +133,10 @@
                                             <p class="heading-product">{{ $value->name }}</p>
                                             <div class="price-product">
                                                 @if ($value->percent_sale == 0 || null)
-                                                    <span class="price-sale">R$ {{ number_format($value->price) }}</span>
+                                                    <span class="price-sale">R$ {{ number_format((float)$value->price, 2, '.', '') }}</span>
                                                 @else
-                                                    <span class="price">R$ {{ number_format($value->price) }}</span>
-                                                    <span class="price-sale ">R$ {{ number_format($value->sale_price) }}</span>
+                                                    <span class="price">R$ {{ number_format((float)$value->price, 2, '.', '') }}</span>
+                                                    <span class="price-sale ">R$ {{ number_format((float)$value->sale_price, 2, '.', '') }}</span>
                                                 @endif
                                             </div>
                                             <div class="rate-product">

@@ -92,7 +92,7 @@
                                 @foreach (Cart::content() as $key => $item)
                                     <div class="item-bill">
                                         <p class="name-product">{{ $item->name }} x {{ $item->qty }}</p>
-                                        <p class="price-product">R$ {{ number_format($item->price) }} </p>
+                                        <p class="price-product">R$ {{ number_format((float)$item->price, 2, '.', '') }} </p>
                                     </div>
                                 @endforeach
                                 <div class="total-bill-pay">

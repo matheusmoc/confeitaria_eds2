@@ -164,7 +164,7 @@
         var price = (jQuery('#price').val() == '' ? 0 : jQuery('#price').val());
         var percent_sale = (jQuery('#percent_sale').val() == '' ? 0 : jQuery('#percent_sale').val());
 
-        var result = ((1 - (parseInt(percent_sale) / 100)) * parseInt(price));
+        var result = ((1 - (parseFloat(percent_sale) / 100)) * parseFloat(price));
         jQuery('#sale_price').val(result);
     }
 
