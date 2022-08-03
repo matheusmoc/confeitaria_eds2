@@ -342,7 +342,7 @@
                             <div class="card-product ">
                                 <a href="{{ url('detalhe-produto/' . $value->id . '/' . $value->slug) }}">
                                     <img src="{{ asset('uploads/img/' . $value->image) }}" width="100%">
-                                    @if ($value->status != 1)
+                                    @if ($value->status != '1')
                                     <div class="sale text-danger font-weight-bold">Esgotado</div>
                                     @elseif ($value->percent_sale > 0)
                                         <div class="sale">
