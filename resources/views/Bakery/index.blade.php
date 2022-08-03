@@ -402,6 +402,25 @@
                 });
             }
 
+
+        function favoriteProduct(id) {
+            $.ajax({
+
+                url: `{{ asset('favoritos/${id}') }}`,
+                type: "GET",
+            }).done(function(response) {
+                if (response) {
+                    if (response.fail) {
+                        alertify.warning(response.fail);
+                    } else {
+                        alertify.success('Favoritos adicionados com sucesso');
+                    }
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
+                }
+            });
+        }
             // $('#btn-login').on('click', function() {
             //     $.ajax({
             //         type: 'POST',
