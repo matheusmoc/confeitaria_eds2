@@ -395,9 +395,9 @@
                 }).done(function(response) {
                     if (response) {
                         alertify.success("Produto adicionado ao carrinho");
-                        setTimeout(() => {
-                            location.reload();
-                        }, 1000);
+
+                        location.reload();
+
                     }
                 });
             }
