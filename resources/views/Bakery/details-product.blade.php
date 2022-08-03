@@ -116,7 +116,7 @@
                             </div>
                             @if ($detail_product->status == 1)
                             <div class="buy-now">
-                                <a href="javascript:" onclick="AddCart('{{ $detail_product->id }}')"
+                                <a href="#" onclick="AddCart('{{ $detail_product->id }}')"
                                     class="btn btn-lg btn-buy" role="button">Encomendar agora</a>
                             </div>
                             @else
@@ -385,7 +385,7 @@
                                     </div>
                                     @else
                                     <div class="order-product">
-                                        <a href="" onclick="AddCart({{ $value->id }})"
+                                        <a href="#" onclick="AddCart({{ $value->id }})"
                                             title="Adicionar ao carrinho">
                                             Adicionar ao carrinho
                                             <i class="fa fa-cart-plus" aria-hidden="true"></i>

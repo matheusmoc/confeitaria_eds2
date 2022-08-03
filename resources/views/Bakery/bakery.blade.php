@@ -169,7 +169,7 @@
                                         </div>
                                     @else
                                         <div class="order-product">
-                                            <a href="" onclick="AddCart({{ $value->id }})"
+                                            <a href="#" onclick="AddCart({{ $value->id }})"
                                                 title="Adicionar ao carrinho">
                                                 Adicionar ao carrinho
                                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
@@ -279,7 +279,7 @@
                                             </div>
                                         @else
                                             <div class="order-product">
-                                                <a href="" onclick="AddCart({{ $value->id }})"
+                                                <a href="#" onclick="AddCart({{ $value->id }})"
                                                     title="Adicionar ao carrinho">
                                                     Adicionar ao carrinho
                                                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
@@ -372,24 +372,4 @@
 
     @section('js')
         <script src="{{ asset('asset/js/bakery/owl.carousel.min.js') }}"></script>
-        <script>
-            function favoriteProduct(id) {
-                $.ajax({
-
-                    url: `{{ asset('favoritos/${id}') }}`,
-                    type: "GET",
-                }).done(function(response) {
-                    if (response) {
-                        if (response.fail) {
-                            alertify.warning(response.fail);
-                        } else {
-                            alertify.success('Favorito adicionado com sucesso');
-                        }
-                        setTimeout(() => {
-                            location.reload();
-                        }, 1000);
-                    }
-                });
-            }
-        </script>
     @endsection
