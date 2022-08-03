@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                            @if ($detail_product->status == 1)
+                            @if ($detail_product->status == '1')
                             <div class="buy-now">
                                 <a href="#" onclick="AddCart('{{ $detail_product->id }}')"
                                     class="btn btn-lg btn-buy" role="button">Encomendar agora</a>

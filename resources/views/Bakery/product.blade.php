@@ -111,7 +111,7 @@
                                         <a href="{{ url('detalhe-produto/' . $value->id . '/' . $value->slug) }}">
                                             <img src="{{ asset('uploads/img/' . $value->image) }}" width="100%">
 
-                                            @if ($value->status != 1)
+                                            @if ($value->status != '1')
                                             <div class="sale text-danger font-weight-bold">Esgotado</div>
                                             @elseif ($value->percent_sale > 0)
                                                 <div class="sale">
@@ -245,19 +245,15 @@
                 type: "GET",
             }).done(function(response) {
                 if (response) {
-
                     if (response.fail) {
                         alertify.warning(response.fail);
                     } else {
                         alertify.success('Favoritos adicionados com sucesso');
                     }
-
                     setTimeout(() => {
-
                         location.reload();
                     }, 1000);
                 }
-
             });
         }
     </script>
