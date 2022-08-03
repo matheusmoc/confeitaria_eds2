@@ -232,13 +232,13 @@
                                         <img src="{{ asset('uploads/img/' . $value->image) }}" width="100%">
 
                                         @if ($value->status != 1)
-                                        <div class="sale text-danger font-weight-bold">Esgotado</div>
+                                            <div class="sale text-danger font-weight-bold">Esgotado</div>
                                         @elseif ($value->percent_sale > 0)
                                             <div class="sale">
                                                 {{ $value->percent_sale }}
                                             </div>
                                         @elseif ($value->sale_price == $value->price)
-                                        <div class="sale">Disponível</div>
+                                            <div class="sale">Disponível</div>
                                         @endif
 
 
@@ -372,4 +372,19 @@
 
     @section('js')
         <script src="{{ asset('asset/js/bakery/owl.carousel.min.js') }}"></script>
+        <script>
+            function AddCart(id) {
+                $.ajax({
+                    url: `{{ asset('adicionar-carrinho/${id}') }}`,
+                    type: "GET",
+                }).done(function(response) {
+                    if (response) {
+                        alertify.success("Produto adicionado ao carrinho");
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
+                    }
+                });
+            }
+        </script>
     @endsection
