@@ -169,7 +169,7 @@
                                         </div>
                                     @else
                                         <div class="order-product">
-                                            <a href="#" onclick="AddCart({{ $value->id }})"
+                                            <a href="" onclick="AddCart({{ $value->id }})"
                                                 title="Adicionar ao carrinho">
                                                 Adicionar ao carrinho
                                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
