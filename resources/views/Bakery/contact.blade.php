@@ -66,7 +66,7 @@
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <div class="item-text">
                                 <p class="heading">Endereço</p>
-                                <p>Rua doutor luís frança de souza, 395, Morada do sol, Montes Claros - MG</p>
+                                <p>Rua Doutor Luís França de Souza, 395, Morada do sol, Montes Claros - MG</p>
                             </div>
 
                         </div>
