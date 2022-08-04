@@ -584,17 +584,6 @@ class IndexBakeryController extends Controller
 
             $product = Product::where('id', $id)->first();
 
-            if (isset($product)) {
-                FacadesCart::add([
-                    'id' => $product->id,
-                    'name' =>  $product->name,
-                    'qty' => 1,
-                    'price' => $product->sale_price,
-                    'weight' => 0,
-                    'options' => array('image' => $product->image)
-                ]);
-            }
-
         }
 
         return view('Bakery.cart', compact('count_favorite'));
