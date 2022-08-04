@@ -198,14 +198,14 @@ class IndexBakeryController extends Controller
     {
         switch ($request->id) {
             case 1:
-                $product = Product::where('price', '<', '50')->get();
+                $product = Product::where('sale_price', '<', 50)->get();
                 break;
             case 2:
-                $product = Product::whereBetween('price', [50, 100])->get();
+                $product = Product::whereBetween('sale_price', [50, 100])->get();
                 break;
 
             default:
-                $product = Product::where('price', '>', '100')->get();
+                $product = Product::where('sale_price', '>', 100)->get();
         }
 
         $count_favorite = 0;
