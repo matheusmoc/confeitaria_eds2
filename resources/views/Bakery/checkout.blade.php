@@ -335,10 +335,6 @@
 
 
 
-
-
-
-
         function carregar() {
             PagSeguroDirectPayment.setSessionId('{{ $sessionID }}')
         }

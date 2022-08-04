@@ -27,8 +27,6 @@ class IndexAdminController extends Controller
             $bill = Bill::where('status','new')->whereBetween('created_at',[request()->date_from,request()->date_to])->get();
         }
 
-
-
         return view('Admin.admin',compact('order','user','bill'));
     }
 
