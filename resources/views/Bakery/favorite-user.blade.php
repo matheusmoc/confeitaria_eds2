@@ -74,23 +74,23 @@
                     <h3>Produto favorito</h3>
                     <div class="row">
                         @foreach ($product as $key => $value)
-
-
                             <div class="col-10 col-md-4 col-lg-4 col-sm-6 p-3">
                                 <div class="card-product ">
-                                    <a href="{{ url('detalhe-produto/' . $value->product->id . '/' . $value->product->slug) }}">
+                                    <a
+                                        href="{{ url('detalhe-produto/' . $value->product->id . '/' . $value->product->slug) }}">
                                         <img src="{{ asset('uploads/img/' . $value->product->image) }}" width="100%">
 
 
-                                    @if ($value->status != '1')
-                                        <div class="sale text-danger font-weight-bold">Esgotado</div>
-                                    @elseif ($value->status == '1' && $value->sale_price == $value->price)
-                                        <div class="sale">Disponível</div>
-                                    @elseif ($value->status == '1' && $value->percent_sale > 0)
-                                        <div class="sale">
-                                            {{ $value->percent_sale }}
-                                        </div>
-                                    @endif
+
+                                        @if ($value->product->status != '1')
+                                            <div class="sale text-danger font-weight-bold">Esgotado</div>
+                                        @elseif ($value->product->status == '1' && $value->sale_price == $value->price)
+                                            <div class="sale">Disponível</div>
+                                        @elseif ($value->product->status == '1' && $value->percent_sale > 0)
+                                            <div class="sale">
+                                                {{ $value->product->percent_sale }}
+                                            </div>
+                                        @endif
 
                                         <div class="favorite">
                                             <a href="#" onclick="favoriteProduct({{ $value->id }})"
@@ -105,11 +105,15 @@
                                         <p class="heading-product">{{ $value->product->name }}</p>
                                         <div class="price-product">
                                             @if ($value->percent_sale == 0 || null)
-                                                <span class="price-sale">{{ number_format((float)$value->product->price, 2, '.', '') }}
+                                                <span
+                                                    class="price-sale">{{ number_format((float) $value->product->price, 2, '.', '') }}
                                                     R$</span>
                                             @else
-                                                <span class="price">{{ number_format((float)$value->product->price, 2, '.', '') }} R$</span>
-                                                <span class="price-sale ">{{ number_format((float)$value->product->sale_price, 2, '.', '') }}
+                                                <span
+                                                    class="price">{{ number_format((float) $value->product->price, 2, '.', '') }}
+                                                    R$</span>
+                                                <span
+                                                    class="price-sale ">{{ number_format((float) $value->product->sale_price, 2, '.', '') }}
                                                     R$</span>
                                             @endif
                                         </div>
@@ -120,27 +124,25 @@
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
-                                        @if ($value->status != '1')
-                                        <div class="order-product" style="background-color: rgb(202, 10, 10);">
-                                            <a href="javascript:" title="Esgotado" disabled>
-                                                Esgotado
-                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
+                                        @if ($value->product->status != '1')
+                                            <div class="order-product" style="background-color: rgb(202, 10, 10);">
+                                                <a href="javascript:" title="Esgotado" disabled>
+                                                    Esgotado
+                                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
                                         @else
-                                        <div class="order-product">
-                                            <a href="#" onclick="AddCart({{ $value->id }})"
-                                                title="Adicionar ao carrinho">
-                                                Adicionar ao carrinho
-                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
+                                            <div class="order-product">
+                                                <a href="#" onclick="AddCart({{ $value->id }})"
+                                                    title="Adicionar ao carrinho">
+                                                    Adicionar ao carrinho
+                                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
                             </div>
-
-
                         @endforeach
                     </div>
                 </div>
@@ -151,6 +153,4 @@
 
 @section('js')
     <script src="{{ asset('asset/js/bakery/owl.carousel.min.js') }}"></script>
-
-
 @endsection
