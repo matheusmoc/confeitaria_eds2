@@ -133,6 +133,15 @@
 
 
           <li class="nav-item">
+            <a href="{{ route('Contact.index') }}" class="nav-link">
+              <i class="fas fa-phone"></i>
+              <p>
+                Gerenciamento de contatos</p>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
             <a href="{{ route('Comment.index') }}" class="nav-link">
               <i class="fas fa-user-edit"></i>
               <p>
