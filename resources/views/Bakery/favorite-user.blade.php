@@ -82,7 +82,7 @@
                                         <img src="{{ asset('uploads/img/' . $value->product->image) }}" width="100%">
 
 
-                                        @if ($value->status != '1')
+                                    @if ($value->status != '1')
                                         <div class="sale text-danger font-weight-bold">Esgotado</div>
                                     @elseif ($value->status == '1' && $value->sale_price == $value->price)
                                         <div class="sale">Disponível</div>

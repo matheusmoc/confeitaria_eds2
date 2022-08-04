@@ -160,21 +160,21 @@
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                     </div>
-                                    @if ($value->status == '0')
-                                        <div class="order-product" style="background-color: rgb(202, 10, 10);">
-                                            <a href="javascript:" title="Esgotado" disabled>
-                                                Esgotado
-                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
+                                    @if ($value->status != '1')
+                                    <div class="order-product" style="background-color: rgb(202, 10, 10);">
+                                        <a href="javascript:" title="Esgotado" disabled>
+                                            Esgotado
+                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
                                     @else
-                                        <div class="order-product">
-                                            <a href="#" onclick="AddCart({{ $value->id }})"
-                                                title="Adicionar ao carrinho">
-                                                Adicionar ao carrinho
-                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
+                                    <div class="order-product">
+                                        <a href="#" onclick="AddCart({{ $value->id }})"
+                                            title="Adicionar ao carrinho">
+                                            Adicionar ao carrinho
+                                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
                                     @endif
                                 </div>
                             </div>
