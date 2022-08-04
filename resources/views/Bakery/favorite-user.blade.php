@@ -108,7 +108,7 @@
                                                     R$</span>
                                             @else
                                                 <span class="price">{{ number_format((float)$value->product->price, 2, '.', '') }} R$</span>
-                                                <span class="price-sale ">{{ number_format((float)$value->product->sale_price, 2, '.', ''(float)) }}
+                                                <span class="price-sale ">{{ number_format((float)$value->product->sale_price, 2, '.', '') }}
                                                     R$</span>
                                             @endif
                                         </div>

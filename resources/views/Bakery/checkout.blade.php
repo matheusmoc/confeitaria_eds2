@@ -27,15 +27,15 @@
                 <div class="row justify-content-lg-center justify-content-md-center">
                     <div class="col-12 col-xl-6 col-lg-6 col-md-10 col-sm-12">
 
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <div class="inf-left">
                             @if (Auth::check())
@@ -92,7 +92,8 @@
                                 @foreach (Cart::content() as $key => $item)
                                     <div class="item-bill">
                                         <p class="name-product">{{ $item->name }} x {{ $item->qty }}</p>
-                                        <p class="price-product">R$ {{ number_format((float)$item->price, 2, '.', '') }} </p>
+                                        <p class="price-product">R$ {{ number_format((float) $item->price, 2, '.', '') }}
+                                        </p>
                                     </div>
                                 @endforeach
                                 <div class="total-bill-pay">
@@ -305,6 +306,16 @@
             }
         });
 
+        // $('#cidade').on('blur', function() {
+        //         if ($(this).val() != 'Montes Claros') {
+        //             alert('Infelizmente não entregamos em sua região');
+        //         }
+        // });
+
+
+
+
+
         $('#exampleRadios1').on('change', function() {
             if ($(this).val() == "1") {
                 $('#exampleModalLong').modal('show');
@@ -321,6 +332,7 @@
                 e.preventDefault();
             }
         });
+
 
 
 
