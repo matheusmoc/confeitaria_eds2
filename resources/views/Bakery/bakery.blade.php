@@ -126,12 +126,12 @@
 
                                     @if ($value->status != '1')
                                         <div class="sale text-danger font-weight-bold">Esgotado</div>
-                                    @elseif ($value->percent_sale > 0)
+                                    @elseif ($value->status == '1' && $value->sale_price == $value->price)
+                                        <div class="sale">Disponível</div>
+                                    @elseif ($value->status == '1' && $value->percent_sale > 0)
                                         <div class="sale">
                                             {{ $value->percent_sale }}
                                         </div>
-                                    @elseif ($value->sale_price == $value->price)
-                                        <div class="sale">Disponível</div>
                                     @endif
 
 

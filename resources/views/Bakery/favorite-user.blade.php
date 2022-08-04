@@ -81,15 +81,16 @@
                                     <a href="{{ url('detalhe-produto/' . $value->product->id . '/' . $value->product->slug) }}">
                                         <img src="{{ asset('uploads/img/' . $value->product->image) }}" width="100%">
 
-                                        @if ($value->status == '0')
+
+                                        @if ($value->status != '1')
                                         <div class="sale text-danger font-weight-bold">Esgotado</div>
-                                        @elseif ($value->percent_sale > 0)
-                                            <div class="sale">
-                                                {{ $value->percent_sale }}
-                                            </div>
-                                        @elseif ($value->sale_price == $value->price)
+                                    @elseif ($value->status == '1' && $value->sale_price == $value->price)
                                         <div class="sale">Disponível</div>
-                                        @endif
+                                    @elseif ($value->status == '1' && $value->percent_sale > 0)
+                                        <div class="sale">
+                                            {{ $value->percent_sale }}
+                                        </div>
+                                    @endif
 
                                         <div class="favorite">
                                             <a href="#" onclick="favoriteProduct({{ $value->id }})"
@@ -103,7 +104,7 @@
                                     <div class="content-product">
                                         <p class="heading-product">{{ $value->product->name }}</p>
                                         <div class="price-product">
-                                            @if ($value->sale_price == $value->price)
+                                            @if ($value->percent_sale == 0 || null)
                                                 <span class="price-sale">{{ number_format((float)$value->product->price, 2, '.', '') }}
                                                     R$</span>
                                             @else
@@ -119,7 +120,7 @@
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
-                                        @if ($value->status == '0')
+                                        @if ($value->status != '1')
                                         <div class="order-product" style="background-color: rgb(202, 10, 10);">
                                             <a href="javascript:" title="Esgotado" disabled>
                                                 Esgotado
