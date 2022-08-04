@@ -50,13 +50,7 @@ class IndexBakeryController extends Controller
 
         $blog = Blog::orderBy('id', 'DESC')->paginate(4);
         $user = User::all();
-
         $slider = Slider::all();
-
-
-
-        // dd($count_favorite2);
-
 
         $count_favorite = 0;
         if (Auth::check()) {
@@ -65,11 +59,8 @@ class IndexBakeryController extends Controller
 
         }
 
-
         return view('Bakery.bakery', compact('product_today', 'product_new', 'blog', 'slider', 'user', 'count_favorite'));
     }
-
-
 
     public function product(Request $request)
     {

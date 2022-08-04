@@ -56,14 +56,14 @@
 
                             @if ($item->sale_price)
                                 <td> R$ <input class="price" type="text" style="border: none;" size="6"
-                                        value="{{ number_format((float)$item->sale_price, 2, '.', '') }}" readonly></td>
+                                        value="{{ number_format((float) $item->sale_price, 2, '.', '') }}" readonly></td>
                                 <td> <input class="price-product" type="text" style="border: none;" size="6"
-                                        value="{{ number_format((float)$item->sale_price, 2, '.', '') }}" hidden></td>
+                                        value="{{ number_format((float) $item->sale_price, 2, '.', '') }}" hidden></td>
                             @else
                                 <td> R$ <input class="price" type="text" style="border: none;" size="6"
-                                        value="{{ number_format((float)$item->price, 2, '.', '') }}" readonly></td>
+                                        value="{{ number_format((float) $item->price, 2, '.', '') }}" readonly></td>
                                 <td> <input class="price-product" type="text" style="border: none;" size="6"
-                                        value="{{ number_format((float)$item->price, 2, '.', '') }}" hidden></td>
+                                        value="{{ number_format((float) $item->price, 2, '.', '') }}" hidden></td>
                             @endif
 
 
@@ -78,7 +78,7 @@
                         <td colspan="4" class="title-total">Total:</td>
                         <td colspan="3" class="title-price price-product">
                             <div class="bold">
-                                R$ {{ Cart::subtotal(0) }}
+                                R$ {{ number_format(Cart::subtotal(0), 2, '.', '') }}
                             </div>
 
                     </tr>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="item-product">
                         <div class="title-product">Preço:</div>
-                        <div class="price-product">R$ {{ number_format((float)$item->price, 2, '.', '') }}</div>
+                        <div class="price-product">R$ {{ number_format((float) $item->price, 2, '.', '') }}</div>
                     </div>
                     <div class="item-product">
                         <div class="title-product">Quantidade:</div>
@@ -123,10 +123,9 @@
                     </div>
                     <div class="item-product">
                         <div class="title-product title-price-product">Total:</div>
-
-                        <div id="price" class="price-product">R$ {{ number_format((float)$item->price * $item->qty, 2, '.', '') }}
+                        <div id="price" class="price-product">R$
+                            {{ number_format((float) $item->price, 2, '.', '') }}
                         </div>
-
                     </div>
                 </div>
             @endforeach
@@ -140,7 +139,7 @@
                     <div class="total-bill">
                         <div class="list-bill">
                             <p class="title-bill">Preço total:</p>
-                            <p class="price-bill" id="resultado">R$ {{ Cart::subtotal(0) }} </p>
+                            <p class="price-bill" id="resultado">R$ {{  number_format(Cart::subtotal(0), 2, '.', '') }} </p>
                         </div>
                         {{-- <div class="list-bill">
                             <p class="title-bill">Desconto:</p>
@@ -148,7 +147,7 @@
                         </div> --}}
                         <div class="list-bill">
                             <p class="title-bill">Valor total:</p>
-                            <p class="price-bill" id="resultado">R$ {{ Cart::subtotal(0) }} </p>
+                            <p class="price-bill" id="resultado">R$ {{ number_format(Cart::subtotal(0), 2, '.', '') }} </p>
                         </div>
                         <div class="payment">
                             @if (Auth::check())
@@ -197,9 +196,7 @@
     <script src="{{ asset('asset/js/bakery/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('asset/js/bakery/cart.js') }}"></script>
     <script>
-
-
-    function DeleteCart(id) {
+        function DeleteCart(id) {
             $.ajax({
                 url: `{{ asset('deletar-do-carrinho/${id}') }}`,
                 type: "GET",
