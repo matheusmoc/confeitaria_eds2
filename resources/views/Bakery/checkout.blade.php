@@ -338,41 +338,5 @@
                 e.preventDefault();
             }
         });
-<<<<<<< HEAD
-
-
-
-        function carregar() {
-            PagSeguroDirectPayment.setSessionId('{{ $sessionID }}')
-        }
-        $(function() {
-            carregar("#ncredito").on('blur', function() {
-                PagSeguroDirectPayment.onSenderHashReady(function(response) {
-                    if (response.status == 'error') {
-                        console.log(response.message)
-                        return false;
-                    }
-                    var hash = response.senderHash
-                    $("#hashseller").val(hash)
-                })
-            })
-        });
-
-
-        $('#nparcela').on('blur', function() {
-            var bandeira = 'visa';
-            var totalParcelas = $(this).val();
-
-            PagSeguroDirectPayment.getInstallments({
-                amount: $("#valortotalfinal").val(),
-                maxInstallmentNoInterest: 2,
-                brand: bandeira,
-                success: function(response) {
-                    console.log(response);
-                }
-            })
-        })
-=======
->>>>>>> 468201e307d237c14d8edec66d29ccbae592e54f
     </script>
 @endsection
