@@ -25,15 +25,9 @@
                 <table class="table">
                     <tbody>
                         <tr>
-<<<<<<< HEAD:resources/views/Admin/contact/details_contact.blade.php
                             <th scope="col">Nome</th>
                             <th>Email</th>
                             <th>Telefone</th>
-=======
-                            <th scope="col">Produtos</th>
-                            <th>Quantidade</th>
-                            <th>Preço</th>
->>>>>>> 468201e307d237c14d8edec66d29ccbae592e54f:resources/views/Admin/contact/detalis_contact.blade.php
                         </tr>
                         @foreach ($contacts as $key => $value)
                             <tr>

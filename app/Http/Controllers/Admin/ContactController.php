@@ -50,7 +50,7 @@ class ContactController extends Controller
      */
     public function show()
     {
-        $contacts = Contact::findOrdFail($id);
+        $contacts = Contact::all();
 
         return view('Admin.contact.details_contact', compact('contacts'));
     }
