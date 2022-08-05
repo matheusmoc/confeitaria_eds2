@@ -49,9 +49,9 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $contacts = Contact::findOrdFail($id);
+        $contacts = Contact::all();
 
         return view('Admin.contact.details_contact', compact('contacts'));
     }
