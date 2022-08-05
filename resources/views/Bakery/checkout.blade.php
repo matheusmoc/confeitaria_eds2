@@ -242,49 +242,44 @@
                     <form method="post" target="pagseguro"
                         action="https://pagseguro.uol.com.br/v2/checkout/payment.html">
 
-                        @foreach (Cart::content() as $key => $item)
-                            <!-- Campos obrigatórios -->
-                            <input name="receiverEmail" type="hidden" value="suporte@lojamodelo.com.br">
-                            <input name="currency" type="hidden" value="BRL">
+                        <!-- Campos obrigatórios -->
+                        <input name="receiverEmail" type="hidden" value="suporte@lojamodelo.com.br">
+                        <input name="currency" type="hidden" value="BRL">
 
-                            <!-- Itens do pagamento (ao menos um item é obrigatório) -->
-                            <input name="itemId1" type="hidden" value="0001">
-                            <input name="itemDescription1" type="hidden" value="{{ $item->name }}">
-                            <input name="itemAmount1" type="hidden"
-                                value={{ number_format((float) $item->price, 2, '.', '') }}>
-                            <input name="itemQuantity1" type="hidden" value="{{ $item->qty }}">
-                            <input name="itemWeight1" type="hidden" value="">
-                            <input name="itemId2" type="hidden" value="">
-                            <input name="itemDescription2" type="hidden" value="">
-                            <input name="itemAmount2" type="hidden" value="25600.00">
-                            <input name="itemQuantity2" type="hidden" value="2">
-                            <input name="itemWeight2" type="hidden" value="750">
-                        @endforeach
+                        <!-- Itens do pagamento (ao menos um item é obrigatório) -->
+                        <input name="itemId1" type="hidden" value="{{$item->id}}">
+                        <input name="itemDescription1" type="hidden" value="{{$item->name}}">
+                        <input name="itemAmount1" type="hidden" value="{{ number_format((float) Cart::subtotal(2), 2, '.', '') }}">
+                        <input name="itemQuantity1" type="hidden" value="1">
+                        <input name="itemWeight1" type="hidden" value="1000">
+
 
                         <!-- Código de referência do pagamento no seu sistema (opcional) -->
                         <input name="reference" type="hidden" value="REF1234">
 
                         <!-- Informações de frete (opcionais) -->
                         <input name="shippingType" type="hidden" value="1">
-                        <input name="shippingAddressPostalCode" type="hidden" value="address">
-                        <input name="shippingAddressStreet" type="hidden" value="address">
-                        <input name="shippingAddressNumber" type="hidden" value="address">
-                        <input name="shippingAddressComplement" type="hidden" value="address">
-                        <input name="shippingAddressDistrict" type="hidden" value="address">
-                        <input name="shippingAddressCity" type="hidden" value="address">
+                        <input name="shippingAddressPostalCode" type="hidden" value="01452002">
+                        <input name="shippingAddressStreet" type="hidden" value="Av. Brig. Faria Lima">
+                        <input name="shippingAddressNumber" type="hidden" value="1384">
+                        <input name="shippingAddressComplement" type="hidden" value="5o andar">
+                        <input name="shippingAddressDistrict" type="hidden" value="Jardim Paulistano">
+                        <input name="shippingAddressCity" type="hidden" value="Sao Paulo">
                         <input name="shippingAddressState" type="hidden" value="SP">
                         <input name="shippingAddressCountry" type="hidden" value="BRA">
 
                         <!-- Dados do comprador (opcionais) -->
-                        <input name="senderName" type="hidden" value="{{ Auth::user()->name }}">
+                        <input name="senderName" type="hidden" value="{{Auth::user()->name}}">
                         <input name="senderAreaCode" type="hidden" value="11">
                         <input name="senderPhone" type="hidden" value="56273440">
-                        <input name="senderEmail" type="hidden" value="{{ Auth::user()->email }}">
+                        <input name="senderEmail" type="hidden" value="comprador@uol.com.br">
+
+
+                        <!-- submit do form (obrigatório) -->
 
                         <div class="text-center">
-                            <!-- submit do form (obrigatório) -->
-                            <input style="width: 200px" cal alt="Pague com PagSeguro" name="submit" type="image"
-                                src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/120x53-pagar.gif" />
+                        <input class="w-50" alt="Pague com PagSeguro" name="submit" type="image"
+                            src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/120x53-pagar.gif" />
                         </div>
                     </form>
                 </div>
