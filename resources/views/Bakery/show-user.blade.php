@@ -84,14 +84,12 @@
                                     <td>{{ $value->id }}</td>
                                     <td>
                                         @if($value->pay == 1)
-                                            <p>...</p>
-                                        @elseif($value->pay == 2)
                                             <p>Pagamento no cartão</p>
                                         @elseif($value->pay == 3)
                                             <p>Pagamento na entrega</p>
                                         @endif
                                     </td>
-                                    <td>{{ $value->total }}</td>
+                                    <td>{{ number_format((float) $value->total, 2, '.', '')  }}</td>
                                     <td>{{ $value->created_at->format('m/d/Y') }}</td>
                                     <td>{{ Carbon\Carbon::parse($value->date_order)->format('m/d/Y') }}</td>
                                     <td>

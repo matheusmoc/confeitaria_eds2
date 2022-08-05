@@ -24,25 +24,10 @@ use Illuminate\Contracts\Session\Session;
 use Exception;
 use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 use RealRashid\SweetAlert\Facades\Alert;
-use PagSeguro\Configuration\Configure;
+
 
 class IndexBakeryController extends Controller
 {
-    private $_configs;
-
-    //CONFIGURAÇÃO DE AMBIENTE
-    public function __construct(){
-        $this->_configs = new Configure();
-        $this->_configs->setCharset('UTF-8');
-        $this->_configs->setAccountCredentials(env('PAGSEGURO_EMAIL'), env('PAGSEGURO_TOKEN'));
-        $this->_configs->setEnvironment(env('PAGSEGURO_AMBIENTE'));
-        $this->_configs->setLog(true, \storage_path('logs/pagseguro_'.date('Ymd').'.log'));
-    }
-
-    public function getCredential(){
-        return $this->_configs->getAccountCredentials();
-    }
-
     public function index()
     {
         $product_today = Product::orderBy('id', 'DESC')->paginate(1);
@@ -295,17 +280,8 @@ class IndexBakeryController extends Controller
             $count_favorite = Favorite::where('user_id', $user_id)->get()->count();
         }
 
-        $data = [];
 
-        //pegar token de acesso do pagseguro
-        $sessionCode = \PagSeguro\Services\Session::create(
-            $this->getCredential()
-        );
-
-        $IDSession = $sessionCode->getResult();
-        $data['sessionID'] = $IDSession;
-
-        return view('Bakery.checkout', $data, compact('count_favorite'));
+        return view('Bakery.checkout', compact('count_favorite'));
     }
 
     public function bill(Request $request)
@@ -326,7 +302,7 @@ class IndexBakeryController extends Controller
             'phone.min' => 'Telefone inválido',
             'address.required' => 'Por favor, informe seu endereço',
             'date_order.required' =>  'Por favor, informe a data desejada',
-            Alert::warning('Aviso', 'Por favor, insira as informações completas!'),
+            // Alert::warning('Aviso', 'Por favor, insira as informações completas!'),
         ]);
 
 
@@ -339,7 +315,7 @@ class IndexBakeryController extends Controller
 
         $bill = new Bill();
         $bill->user_id = Auth::user()->id;
-        $bill->total = Cart::subtotal(0);
+        $bill->total = Cart::subtotal(2);
         $bill->pay = $request->pay;
         $bill->note = $request->note;
         $bill->address = $request->address;
@@ -412,7 +388,7 @@ class IndexBakeryController extends Controller
             Alert::success('Notificações', 'Login realizado com sucesso!');
             return redirect()->back()->with(['status' => 'Conectado com sucesso']);
         } else {
-            Alert::error('Aviso', 'Nome de usuário ou senha incorretos!!!');
+            Alert::error('Aviso', 'Nome de usuário ou senha inválidas!');
 
             return redirect()->back();
         }

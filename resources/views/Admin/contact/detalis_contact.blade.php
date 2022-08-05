@@ -30,8 +30,7 @@
                         <tr>
                             <th scope="col">Produtos</th>
                             <th>Quantidade</th>
-                            <th>
-                                Preço</th>
+                            <th>Preço</th>
                         </tr>
                         @foreach ($contacts as $key => $value)
                             <tr>
