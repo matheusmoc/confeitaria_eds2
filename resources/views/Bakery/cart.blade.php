@@ -78,7 +78,7 @@
                         <td colspan="4" class="title-total">Total:</td>
                         <td colspan="3" class="title-price price-product">
                             <div class="bold">
-                                R$ {{ number_format(Cart::subtotal(0), 2, '.', '') }}
+                                R$ {{ number_format(Cart::subtotal(2), 2, '.', '') }}
                             </div>
 
                     </tr>
@@ -139,7 +139,7 @@
                     <div class="total-bill">
                         <div class="list-bill">
                             <p class="title-bill">Preço total:</p>
-                            <p class="price-bill" id="resultado">R$ {{  number_format(Cart::subtotal(0), 2, '.', '') }} </p>
+                            <p class="price-bill" id="resultado">R$ {{  number_format(Cart::subtotal(2), 2, '.', '') }} </p>
                         </div>
                         {{-- <div class="list-bill">
                             <p class="title-bill">Desconto:</p>
@@ -147,7 +147,7 @@
                         </div> --}}
                         <div class="list-bill">
                             <p class="title-bill">Valor total:</p>
-                            <p class="price-bill" id="resultado">R$ {{ number_format(Cart::subtotal(0), 2, '.', '') }} </p>
+                            <p class="price-bill" id="resultado">R$ {{ number_format(Cart::subtotal(2), 2, '.', '') }} </p>
                         </div>
                         <div class="payment">
                             @if (Auth::check())

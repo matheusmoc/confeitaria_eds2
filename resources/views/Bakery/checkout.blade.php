@@ -98,7 +98,8 @@
                                 @endforeach
                                 <div class="total-bill-pay">
                                     <p class="name-product">Total</p>
-                                    <p class="price-product">R$ {{ Cart::subtotal(0) }} </p>
+                                    <p class="price-product">R$ {{ number_format((float) Cart::subtotal(2), 2, '.', '') }}
+                                    </p>
                                 </div>
 
                                 <hr class="m-4">
@@ -131,6 +132,85 @@
                                     </label>
                                 </div>
 
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Dados do cartão
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body">
+
+
+                                                <div class="row">
+
+                                                    <input class="form-control" type="text" name="hashseller"
+                                                        id="hashseller">
+
+                                                    <div class="col-4">
+                                                        <label> Cartão de crédito </label>
+                                                        <input class="form-control" type='text' name="ncredito"
+                                                            id="ncredito" placeholder="Número">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label>Cód.</label>
+                                                        <input class="form-control" type='text' name="ncvv"
+                                                            id="ncvv" placeholder="CVV">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label>Mês de expiração.</label>
+                                                        <input class="form-control" type='text' name="mesxp"
+                                                            id="mesxp" placeholder="Mês">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label>Ano de expiração</label>
+                                                        <input class="form-control" type='text' name="anoexp"
+                                                            id="anoexp" placeholder="Ano">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label>Nome do cartão</label>
+                                                        <input class="form-control" type='text' name="nomecartao"
+                                                            id="nomecartao" placeholder="Nome">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label>Parcelas:</label>
+                                                        <input class="form-control" type='number' name="nparcela"
+                                                            id="nparcela" placeholder="Parcelas">
+                                                    </div>
+
+                                                    <div class="col-4">
+                                                        <label>Valor total:</label>
+                                                        <input class="form-control" type='number' name="totalfinal"
+                                                            id="totalfinal"
+                                                            value="{{ number_format((float) Cart::subtotal(2), 2, '.', '') }}"
+                                                            placeholder="Total" readonly>
+                                                    </div>
+
+                                                    <div class="col-4">
+                                                        <label>Valor da parcela:</label>
+                                                        <input class="form-control" type='number' name="totalparcela"
+                                                            id="totalparcela" placeholder="Valor da parcela">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Fechar</button>
+                                                <button type="submit" class="btn btn-primary" value="submit">Efetuar
+                                                    Pagamento</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="pay" id="exampleRadios1"
                                         value="3">
@@ -150,81 +230,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <form>
-        @csrf
-        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Dados do cartão
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
 
-                    <div class="modal-body">
-
-
-                        <div class="row">
-
-                            <input class="form-control" type="text" name="hashseller" id="hashseller">
-
-                            <div class="col-4">
-                                <label> Cartão de crédito </label>
-                                <input class="form-control" type='text' name="ncredito" id="ncredito"
-                                    placeholder="Número">
-                            </div>
-                            <div class="col-4">
-                                <label>Cód.</label>
-                                <input class="form-control" type='text' name="ncvv" id="ncvv"
-                                    placeholder="CVV">
-                            </div>
-                            <div class="col-4">
-                                <label>Mês de expiração.</label>
-                                <input class="form-control" type='text' name="mesxp" id="mesxp"
-                                    placeholder="Mês">
-                            </div>
-                            <div class="col-4">
-                                <label>Ano de expiração</label>
-                                <input class="form-control" type='text' name="anoexp" id="anoexp"
-                                    placeholder="Ano">
-                            </div>
-                            <div class="col-4">
-                                <label>Nome do cartão</label>
-                                <input class="form-control" type='text' name="nomecartao" id="nomecartao"
-                                    placeholder="Nome">
-                            </div>
-                            <div class="col-4">
-                                <label>Parcelas:</label>
-                                <input class="form-control" type='number' name="nparcela" id="nparcela"
-                                    placeholder="Parcelas">
-                            </div>
-
-                            <div class="col-4">
-                                <label>Valor total:</label>
-                                <input class="form-control" type='number' name="totalfinal" id="totalfinal"
-                                    value="{{ Cart::subtotal(0) }}" placeholder="Total">
-                            </div>
-
-                            <div class="col-4">
-                                <label>Valor da parcela:</label>
-                                <input class="form-control" type='number' name="totalparcela" id="totalparcela"
-                                    placeholder="Valor da parcela">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary" value="pay_card">Efetuar Pagamento</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
 
 
 @endsection
@@ -332,6 +338,7 @@
                 e.preventDefault();
             }
         });
+<<<<<<< HEAD
 
 
 
@@ -365,5 +372,7 @@
                 }
             })
         })
+=======
+>>>>>>> 468201e307d237c14d8edec66d29ccbae592e54f
     </script>
 @endsection
